@@ -1,0 +1,66 @@
+\chapter{Extra}
+
+
+		
+		\section{Comparación de la eliminacion adiabatica con modulación de amplitud}
+		
+		
+		
+		Si el problema fuera de modulación en la amplitud, las ecuaciones se podrían escribir con unos simples cambios
+		
+		\[
+			\begin{cases}
+				\partial_{\tau} Re(E_y)=-\tilde{k} Re(E_y) + \mu Re(P_y) \\
+				\partial_{\tau} Im(E_y)=-\tilde{k} Im(E_y) + \mu Im(P_y)  \\
+			\end{cases}
+		\]
+		 
+		Donde $\tilde{k}=k(1+\cos(\tilde{w} \tau))$. Con estas ecuaciones los resultados anteriores son idénticos reemplazando $k$ por $\tilde{k}$ y $\Delta \phi =0$ , por lo tanto se obtiene		
+		
+		
+			\begin{equation}
+				\begin{cases}
+					\partial_{\tau}I_x=2[-\tilde{k} I_x +\tfrac{1}{2}\mu[E^*_xP_x+E_xP^*_x] ]  \\
+					\partial_{\tau}I_y=2[-\tilde{k} I_y +\tfrac{1}{2}\mu[E^*_yP_y+E_yP^*_y] ]  \\
+					\partial_{\tau}\psi_x  = \frac{\mu(P_{xi}E_{xr}-P_{xr}E_{xi})}{I_x}\\
+					\partial_{\tau}\psi_y  = \frac{\mu(P_{yi}E_{yr}-P_{yr}E_{yi})}{I_y}\\
+				\end{cases}	
+			\end{equation}
+			
+			
+			
+			\begin{equation}
+				\begin{cases}
+					\partial_{\tau}I=2[-\tilde{k} I +\tfrac{1}{2}\mu[E^*_xP_x+E_xP^*_x+E^*_yP_y+E_yP^*_y]  ] \\
+					\partial_{\tau}\Psi  = \frac{\mu(P_{yr}E_{xr}-P_{xr}E_{yr})}{E^2_{yr}+E^2_{xr}}\\
+				\end{cases}
+			\end{equation}
+			
+		\subsection{Eliminacion adiabatica}
+			
+		Tomando $E=E_0 e^{-i\bar{\delta w} \tau }$, $P=P_0 e^{-i\bar{\delta w} \tau }$
+		 
+		si aproximo $P_0$ constante en la estala temporal $\tau$ y defino $\tilde{\delta w }=\delta_{ac'}-\bar{\delta w}$
+		
+		
+		\[\partial_{\tau}P_0=0 \Longrightarrow P_0=\frac{E_0 D}{(1+i\tilde{\delta w })}=E_0 D \alpha(1-\tilde{i\delta w })	\]
+		
+		
+		Reemplazando en las ecuaciones:
+		
+			\begin{equation}
+				\begin{cases}
+					\partial_{\tau}I_x=2[-\tilde{k} I_x +\mu\alpha I_x D]  \\
+					\partial_{\tau}I_y=2[-\tilde{k} I_y +\mu\alpha I_y D]  \\
+					\partial_{\tau}\psi_x  = -\mu \alpha D \tilde{\delta w} \\
+					\partial_{\tau}\psi_y  = -\mu \alpha D \tilde{\delta w} \\
+				\end{cases}	
+			\end{equation}
+		
+			\begin{equation}
+				\begin{cases}
+					\partial_{\tau}I=2[-\tilde{k} I +\mu \alpha D I ] \\
+					\partial_{\tau}\Psi  = \frac{\mu(P_{yr}E_{xr}-P_{xr}E_{yr})}{E^2_{yr}+E^2_{xr}}\\
+				\end{cases}
+			\end{equation}
+			\todo{ver la fase }

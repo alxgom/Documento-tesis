@@ -1,0 +1,82 @@
+\ProvidesPackage{document_style}
+
+
+\usepackage[spanish]{babel}
+%\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{fontspec}%la posta para las tildes con lualatex
+\usepackage[margin=0.4in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{hyperref}%puedo usar la opcion [hidelinks] para que no se vean los colores de los links
+\usepackage{xcolor}
+\hypersetup{
+	colorlinks,
+	linkcolor={red!50!black},
+	citecolor={blue!50!black},
+	urlcolor={blue!80!black}
+}%colores para los links
+
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{soul}
+
+\usepackage{epstopdf}
+\usepackage{capt-of}
+\usepackage[usenames]{color}
+\usepackage{pgf,tikz}
+%\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usetikzlibrary{babel}
+%\usepackage{pst-fractal}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes,snakes}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,decorations.markings}
+
+\usepackage{fullpage} 
+%\usepackage{parskip}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[space]{grffile}
+%\usetkzobj{all}
+\usepackage{subfiles}
+\usepackage{standalone}
+%los de aca abajo capaz no los uso
+%\usepackage{natbib}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{lightgrey}{rgb}{0.9,0.9,0.9}
+\definecolor{almond}{RGB}{255,235,205}
+
+
+\lstset{frame=tb,
+	backgroundcolor=\color{almond},
+	language=Python,
+	aboveskip=2mm,
+	belowskip=2mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\tiny\ttfamily\scriptsize},
+	numbers=left,
+	keepspaces=true,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=2
+}
+
+
+\newcommand{\webpdf}{https://drive.google.com/file/d/0B2MOYme4kZd-OVVPdzF4VGoya1E/view?usp=sharing}%no lo uso
+\newcommand{\Ts}{\rule{0pt}{2.6ex}}       % Top strut
+\newcommand{\Bs}{\rule[-1.2ex]{0pt}{0pt}} % Bottom strut

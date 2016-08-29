@@ -1,0 +1,94 @@
+\chapter{Introducción}
+	
+	\section{Introducción a eventos catastróficos}
+	
+		\textcolor{red}{basado en el plan de tesis}
+		
+		Usualmente los eventos catastróficos están asociados a un cambio significativo y abrupto , el cual es capaz de producir una catástrofe.
+		En general es un fenómeno que puede producir un cambio en nuestro ambiente o condiciones socio-políticas. 
+		
+		Terremotos, \textit{tidal waves} , supernovas, huracanes y \textit{rogue waves} son ejemplos típicos comúnmente considerados eventos extremos o catastróficos \textcolor{red}{cito papers? }.
+		Los daños producidos por  dichos eventos conllevan terribles desastres y perdidas económicas, razón por la cual hay un  gran crecimiento en el interés de estudiar y aprender acerca de  estos fenómenos tanto en investigación científica como por parte de políticas publicas.
+		
+		\begin{figure}[htp]
+			\begin{center}
+				\includegraphics[width= 0.5\linewidth]{../Python/Imagenes especiales para la tesis/otro/wilstar.jpg}
+				\caption{Tanker Noruego 'Wilstar' luego de un encuentro con una \textit{Rogue wave}, 1974.}%http://www.theartofdredging.com/roguewaves.htm
+				\label{fig: wilstar}
+			\end{center}
+		\end{figure}
+		
+		Durante los últimos años,la investigación en eventos extremos se convirtió en un tema de gran importancia relacionada con sistemas complejos relacionados con el mundo socio-económico.
+		
+		Seria importante poder predecir y controlar dichos eventos extremos, por lo tanto uno de los objetivos del estudio de sistemas con eventos extremos es proveer conocimiento y herramientas que puedan contribuir a la reducción de vulnerabilidad frente a estos efectos.
+		
+		\label{rogue waves}
+		Uno de los casos que mas interés presentan son los de \textit{rogue waves} en el océano, olas individuales cuya amplitud es mucho mas grande que la media de las olas que se producen en el ambiente en el que se encuentran. 
+		
+		Este caso es el que inspira varias de las definiciones utilizadas en el estudio de eventos extremos para distinguir entre eventos comunes o poco probables, con una distribución  de probabilidades en la amplitud que presenta una 'cola',  y lo que identificamos como eventos extremos \cite{wave_disaster} . 
+		Sin embargo estas olas son producidas en el océano y realizar mediciones sobre las mismas es un proceso complicado y demasiado lento, lo cual genera una necesidad de estudiar estos eventos en sistemas que presenten una dinámica análoga, pero que se puedan producir en un laboratorio y a escalas temporales que permitan obtener una gran cantidad de datos para tiempos mas cortos.
+		
+		\textcolor{red}{ Vale la pena aclarar que las definiciones de eventos extremos utilizadas tienen en cuenta el hecho de que la estadística de los mismos debe ser no-gaussiana. Esto en parte se inspira por las frecuencias obtenidas por los datos experimentales y al mismo tiempo es un indicio de la no-linealidad del problema subyacente, ya que la probabilidad de un evento anormalmente grande en suma aleatoria de ondas que interactuan linealmente sigue una distribución gaussiana.}
+		
+		
+		
+		\textcolor{red}{poner alguna imagen del una rogue wave. puede ser la del paper de disaster in extreme waves.}
+		\textcolor{red}{Decir algo sobre las definiciones existentes de extreme events, y como para las olas puede haber mejores parámetros que la altura dependiendo de la variable que se considere extrema \cite{wave_disaster}.}
+		
+	\section{Lasers como modelo de estudio practico.}
+	
+		La versatilidad y facilidad de acceso experimental a cavidades ópticas no lineales , junto con su capacidad de acoplarlas en redes   las convierte en un sistema de estudio muy atractivo para el estudio de eventos extremos en sistemas disipativos .\textcolor{red}{esta parte debería cambiarla}
+		
+		\textcolor{red}{podría poner una imagen de extreme events del paper de Kovalsky del 2011}
+		
+		\begin{center}
+			\includegraphics[width= 0.5\linewidth]{../Python/Imagenes especiales para la tesis/otro/rogue laser.png}
+			\captionof{figure}{\textit{Rogue waves} and Lasers. Versión \textit{cool} }	.	
+		\end{center}
+		
+		Parte del interés que se tiene en estudiar cavidades ópticas no lineales, es que en los últimos años han surgido varias investigaciones tanto teóricas como experimentales que demuestran la existencia de eventos extremos en las mismas para una gran variedad de sistemas.
+		\textcolor{red}{cambiar un poco}.
+		
+		Si bien trabajos mostrando comportamientos caóticos y bifurcaciones en cavidades ópticas existen desde los 1980's \textcolor{red}{cita tredicce 1982 (no lo encuentro)  }  \cite{ikeda:jpa-00222595} ,  solo recientemente se han investigado las estadísticas de los campos cuando la ganancia es lo suficientemente alta como para generar una secuencia caótica con múltiples pulsos dentro de la cavidad \cite{PhysRevE.84.016604}  . \textcolor{red}{esta parte no me convence.} 
+		
+		Uno de los objetivos de este proyecto es obtener eventos extremos a partir de un modelo teórico   de manera controlada con el fin de analizar los datos y obtener mas información de como se generan.
+	
+	\section{Investigaciones existentes sobre eventos extremos en LASER}
+		
+		Actualmente gran cantidad de trabajos estudiando eventos extremos usan como modelo a la ecuación de Schrödinger no lineal \textcolor{red}{citar algunos trabajos}. Sin embargo se ha demostrado que existen sistemas que se pueden modelar utilizando modelos semi-clásicos mas simples que  también desarrollan eventos extremos en casos de multiestabilidad. 
+		
+		\textcolor{red}{no estoy seguro de este párrafo.}
+		
+		En la literatura se han utilizado varias maneras de definir un evento extremo. Antiguamente, para los eventos catastróficos en el océano, se utilizaba como definición de una rogue wave una ola cuya amplitud sea el doble que la amplitud del valor medio del tercio mas alto de la distribución de máximos \cite{wave_disaster}. Sin embargo esta definición fue dejada de lado por otras mas practicas , que reflejan mejor el evento que se quiere remarcar. 
+		Varias discuciones se han realizado respecto a posibles definiciones, incluso utilizando otros parámetros, o un conjunto de los mismos \cite{Ruban2010} .
+		
+		
+		\textcolor{red}{ojo con  lo que digo acá}
+		
+		\textcolor{red}{ Varios trabajos se han realizado demostrando que existe una multitud de mecanismos que dan lugar a \textit{Rogue waves}.
+		En áreas en la que se estudia este efecto en sistemas modelados por la NLS, hay un gran consenso de que el mecanismo común es mediante inestabilidad de modulación. 
+		Sin embargo en otras áreas como \textit{Rogue waves} en aguas poco profundas el mecanismo es la interacción entre solitones. (cita tarmo soorome \cite{Ruban2010} ) }
+		Otros trabajos realizados en sistemas ópticos mas simples demuestran que un mecanismo posible para la aparición de eventos extremos es en sistemas que presentan crisis en sus diagramas de bifurcación \cite{Metayer:14}\cite{PhysRevA.87.035802} .
+		\textcolor{red}{cambiar la ultima parte}
+		
+		\todo{mecanismos de crisis para extreme events  \cite{1983PhyDcrises}  }
+		
+		Usualmente los métodos para estudiar eventos extremos utilizados dependen del uso de propiedades estadísticas de la ocurrencia de los mismos.
+		Si bien esta forma de encarar \textcolor{red}{(hay una mejor traducción de approach?)} el problema es útil en ramas como en finanzas \cite{Gilli2006_finanza}, ya que sirve para caracterizar la dinámica del sistema, poco puede decirnos sobre el mecanismo por el cual suceden los eventos extremos, y mucho menos darnos una manera de predecirlos y/o controlarlos.
+		
+		Existen trabajos estudiando la capacidad que de predicción para eventos extremos, y posibles mecanismos control 		\cite{Ahuja:14} .
+		En los mismos también se muestra la incidencia que puede tener la presencia de ruido en la generación o supresión de las \textit{Rogue waves}, y como al variar la definición que se utiliza para las mismas también puede cambiar la capacidad de predican de los eventos.
+		
+		En la literatura también se encuentran trabajos realizados que demuestran que un láser con modulación periódica en las perdidas demuestra dinámicas con eventos extremos \cite{Metayer:14} .
+		
+		Algunos resultados experimentales preliminares realizados por el grupo de \textcolor{red}{como pongo lo del grupo de citefa?} en CITEFA dan indicio de que un láser con una modulación en la fase de uno de los campos también podría resultar en un sistema que presente eventos extremos.
+		
+		Así mismo, trabajos realizados anteriormente en sistemas modulados en la fase también reportan resultados caóticos interesantes que dan indicios de la posible existencia de expansiones repentinas del espacio de fase de las soluciones \cite{PhysRevLett.55.1989}. \textcolor{red}{todavía tengo que leerlo para estar seguro}
+		\textcolor{red}{trabajo del pierre glorieux, elastomerico. 80s.. crisis 87-88 \cite{PhysRevLett.55.1989}  }
+		
+		Estos resultados inspiran el trabajo realizado en este proyecto, en el cual se realiza un modelo teórico para el láser con modulación en la fase, y se estudia las dinámicas que presenta este sistema para algunos de los valores de los parámetros usualmente utilizados en el laboratorio.
+		 
+		 
+		 \textcolor{red}{decir algo sobre determinismo y sistemas con ruido.}
+		 \textcolor{red}{Poner algo sobre las discusiones de la definición de rogue waves.}
+		 

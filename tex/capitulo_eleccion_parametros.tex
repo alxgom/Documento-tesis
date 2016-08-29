@@ -1,0 +1,86 @@
+
+\section{Elección de parámetros del sistema}
+
+	Para este estudio se fijaron los parámetros físicos del sistema de manera que el estudio se concentra en la evolución del sistema al variar los parámetros de modulación, dejando fijo los demás parámetros del láser.
+	
+	Los parámetros utilizados a lo largo del estudio son :
+	\begin{itemize}
+		\item $\gamma_{||}=2,5 .10^{-4}$
+		\item $k=0,09$Khz
+		\item $\mu=2.5 .10^{-5}$
+		\item $D_0=7200$
+		\item $\delta=1$
+	\end{itemize}
+	
+	donde $k$, $mu$ y  $\gamma_{||}$ fueron elegidos basados en los valores usuales para el láser modelado.
+	$D_0$ es fijado pidiendo que la constante $A=\frac{D_0 \mu}{k}=2$, y el valor de $\delta$ es elegido de manera tal que los efectos no lineales sean mas notorios. Para esto se utiliza un valor de $\delta$ que aleje al sistema del máximo de la campana de ganancia ($\delta=0$).
+	
+	Para este sistema, la frecuencia de resonancia esta determinada por la ecuación 
+	
+	\[ \Omega=\sqrt{k \gamma_{||} (\frac{D_0 \mu}{k} -1)}=\sqrt{k \gamma_{||} (A -1)}=\sqrt{k \gamma_{||}}=473.34 Khz\]
+	
+	A continuación se muestran algunas dinámicas del sistema en ausencia de modulación ($m=0$, $\Delta \phi_0 = 0$)
+	
+%	\textcolor{red}{poner ejemplos sin modulación. }
+%		
+%		
+%	Mientras que a continuación se compara la dinámica del modulo del campo eléctrico para un caso en el cual $\delta =0$ y otro en el que $\delta = 1$
+%		
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/casos interesantes/comparison no mod short time.png}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/casos interesantes/comparison no mod long time.png}
+		\end{center}
+	\end{minipage}
+	
+	\textcolor{red}{cambiar labels}
+
+	Mientras que a continuación se compara la dinámica del modulo del campo eléctrico para un caso en el cual $\delta =0$ y otro en el que $\delta = 1$
+
+
+	\textcolor{red}{Poner comparación con y sin $\delta =1 $ }
+
+
+	En la figura \ref{fig: ci simetrica} se muestra como a partir de una condición inicial simétrica en x e y, el sistema evoluciona manteniendo la simetría, como es esperable.
+	\begin{center}
+		\includegraphics[width= 0.6\linewidth]{../Python/Imagenes especiales para la tesis/m=0, simetr.png}
+		\captionof{figure}{Evolución del sistema sin modulación a partir de la condición inicial simétrica: $E=(1+i1,1+i1)$ ,$ P=(60+i60,60+i60)$, $D=6000$}
+		\label{fig: ci simetrica}
+	\end{center}
+	
+%		\begin{center}
+%			\includegraphics[width= 0.6\linewidth]{../Python/integ directa/Results/2016_7_26-19.34.48-E_intensitys.png}
+%			\captionof{figure}{Evolución del sistema sin modulación a partir de la condición inicial simétrica: $E=(5+i5,5+i5)$ ,$ P=(3000+i3000,3000+i3000)$, $D=6000$}
+%			\label{ci simetrica 2}
+%		\end{center}
+%	
+	
+	\begin{center}
+		\includegraphics[width= 0.6\linewidth]{../Python/Imagenes especiales para la tesis/m=0, asimetr.png}
+		\captionof{figure}{Evolución del sistema sin modulación a partir de la condición inicial asimétrica: $E=(2+i2,1+i1)$ ,$ P=(100+i100,60+i60)$, $D=6000$}
+	\end{center}
+		
+		
+	Luego se utilizaran los valores finales de este resultado como condición inicial para intentar encontrar otros casos con dinámica 'activa' en ambos campos.	
+%	\begin{center}
+%		\includegraphics[width= 0.5\linewidth]{../Python/integ directa/Results/casos interesantes/sin modulacion/2016_6_2-17.4.17-E_intensitys.png}
+%	\end{center}
+	
+	Una vez que el sistema se encuentra modulado, se espera que para $\delta=0$ el sistema responda con el doble del periodo de la modulación, mientras que con $\delta\neq 0$ el sistema...  .
+	%mejorar esta parte.
+	
+		\textcolor{red}{Poner figuras con los periodos de ambos casos. }
+%	\begin{center}
+%		\includegraphics[width= 0.4\linewidth]{../Python/casos interesantes/comparison no mod long time.png}
+%	\end{center}
+	
+	
+%	\begin{center}
+%		\includegraphics[width= 0.4\linewidth]{../Python/casos interesantes/comparison no mod long time.png}
+%	\end{center}
+
+

@@ -1,0 +1,15 @@
+\section{Detalles del código}
+
+	Para realizar las integraciones del código se utilizo la librería \texttt{spypi.odeint}.
+	
+	Como la integración se realiza en la  escala temporal de $\tau$ los resultados deben ser reescaleados .
+	
+	Para reescalear los tiempos se multiplica a los mismos por $\gamma_{\bot}$, por ultimo se multiplica a esta valor por $10^{-6}$ para pasar la escala a microsegundos.
+	Para la frecuencia utilizada, como la misma aparece en $\cos(\hat{w}\tau)$, $\hat{w}=w \gamma_{bot}$. Por lo tanto para reescalear $\hat{w}$ en $w$ se $w=\frac{\hat{w}}{\gamma_{\bot}}$. Pot ultimo para pasar este valor a kHz, se lo multiplica por  $10^{-3}$.
+	
+	\begin{figure}
+		\includegraphics{../Python/Imagenes especiales para la tesis/chequeo_1khz}
+		\caption{Chequeo del reescaleo. $\cos(wt)$ con $w=6,28$kHz, o $\nu = 1$kHz. $\hat{w}=0,00000628$}
+	\end{figure}
+	
+	

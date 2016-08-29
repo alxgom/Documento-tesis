@@ -1,0 +1,54 @@
+\BOOKMARK [1][-]{section.0.1}{Cosas para hacer}{}% 1
+\BOOKMARK [2][-]{subsection.0.1.1}{Polarización}{section.0.1}% 2
+\BOOKMARK [2][-]{subsection.0.1.2}{Galerkin}{section.0.1}% 3
+\BOOKMARK [2][-]{subsection.0.1.3}{Otros}{section.0.1}% 4
+\BOOKMARK [2][-]{subsection.0.1.4}{Preguntas Papers}{section.0.1}% 5
+\BOOKMARK [0][-]{chapter.1}{Modelo teorico}{}% 6
+\BOOKMARK [1][-]{section.1.1}{El sistema:}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.1.1}{Ecuaciones dinámicas del LASER}{section.1.1}% 8
+\BOOKMARK [2][-]{subsection.1.1.2}{Metodo semiclasico: Relaciones de Maxwell-bloch}{section.1.1}% 9
+\BOOKMARK [2][-]{subsection.1.1.3}{Normalizaciones y aproximaciones}{section.1.1}% 10
+\BOOKMARK [2][-]{subsection.1.1.4}{Condiciones de borde}{section.1.1}% 11
+\BOOKMARK [1][-]{section.1.2}{Elección de parámetros del sistema}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.3}{Ruptura de simetría y decaimiento de |Ex|}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.3.1}{Intensidad y fase }{section.1.3}% 14
+\BOOKMARK [2][-]{subsection.1.3.2}{Ruptura de simetría}{section.1.3}% 15
+\BOOKMARK [2][-]{subsection.1.3.3}{Casos con modulación dependiente del tiempo}{section.1.3}% 16
+\BOOKMARK [1][-]{section.1.4}{Mapas}{chapter.1}% 17
+\BOOKMARK [2][-]{subsection.1.4.1}{Barridos en m}{section.1.4}% 18
+\BOOKMARK [2][-]{subsection.1.4.2}{Barrido en w}{section.1.4}% 19
+\BOOKMARK [2][-]{subsection.1.4.3}{Barridos en }{section.1.4}% 20
+\BOOKMARK [1][-]{section.1.5}{Transitorios}{chapter.1}% 21
+\BOOKMARK [1][-]{section.1.6}{casos particulares}{chapter.1}% 22
+\BOOKMARK [2][-]{subsection.1.6.1}{Visualización de casos particulares }{section.1.6}% 23
+\BOOKMARK [2][-]{subsection.1.6.2}{Fase física}{section.1.6}% 24
+\BOOKMARK [1][-]{section.1.7}{Multiestabilidad}{chapter.1}% 25
+\BOOKMARK [2][-]{subsection.1.7.1}{m=0.02, w=237.3Khz}{section.1.7}% 26
+\BOOKMARK [2][-]{subsection.1.7.2}{m=0.02, w=100Khz}{section.1.7}% 27
+\BOOKMARK [1][-]{section.1.8}{Intermitencia}{chapter.1}% 28
+\BOOKMARK [0][-]{chapter.2}{Eventos extremos}{}% 29
+\BOOKMARK [1][-]{subsection.2.0.1}{Coeficientes de Lyapunov}{chapter.2}% 30
+\BOOKMARK [0][-]{chapter.3}{Eliminación adiabatica}{}% 31
+\BOOKMARK [1][-]{section.3.1}{Posible eliminación adiabatica}{chapter.3}% 32
+\BOOKMARK [0][-]{chapter.4}{Extra}{}% 33
+\BOOKMARK [1][-]{section.4.1}{Comparación de la eliminacion adiabatica con modulación de amplitud}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.1.1}{Eliminacion adiabatica}{section.4.1}% 35
+\BOOKMARK [1][-]{section.4.2}{Detalles del código}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.2.1}{Código utilizado para los barridos.}{section.4.2}% 37
+\BOOKMARK [1][-]{section.4.3}{El problema transversal}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.3.1}{Descomposición de Galerkin}{section.4.3}% 39
+\BOOKMARK [1][-]{section.4.4}{Code deduction:}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.5}{Polinomios de Laguerre}{chapter.4}% 41
+\BOOKMARK [1][-]{section.4.6}{Cuadraturas}{chapter.4}% 42
+\BOOKMARK [2][-]{subsection.4.6.1}{Cuadraturas de Gauss-Laguerre}{section.4.6}% 43
+\BOOKMARK [2][-]{subsection.4.6.2}{Implementaciones}{section.4.6}% 44
+\BOOKMARK [2][-]{subsection.4.6.3}{Cuadratura de Gauss-Legendre}{section.4.6}% 45
+\BOOKMARK [2][-]{subsection.4.6.4}{Cuadraturas en 2d}{section.4.6}% 46
+\BOOKMARK [2][-]{subsection.4.6.5}{Integral de }{section.4.6}% 47
+\BOOKMARK [2][-]{subsection.4.6.6}{Cuadratura para las proyecciones}{section.4.6}% 48
+\BOOKMARK [2][-]{subsection.4.6.7}{Aproximación del bombeo}{section.4.6}% 49
+\BOOKMARK [1][-]{section.4.7}{Reproducción de papers}{chapter.4}% 50
+\BOOKMARK [2][-]{subsection.4.7.1}{Symmetry breaking, dinamical pulsations, turbulence}{section.4.7}% 51
+\BOOKMARK [1][-]{section.4.8}{El problema que planteo}{chapter.4}% 52
+\BOOKMARK [2][-]{subsection.4.8.1}{Ecuaciones:}{section.4.8}% 53
+\BOOKMARK [1][-]{section.4.9}{Detalles del código 2D}{chapter.4}% 54

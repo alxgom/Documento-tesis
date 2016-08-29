@@ -1,0 +1,302 @@
+		
+				\subsection{Normalizaciones y aproximaciones}
+				
+				\subsubsection{Campo unidireccional}
+				
+				Se toma al campo como yendo en dirección positiva en $\hat{z}$ (eje longitudinal del medio), es decir que el ring laser solo funciona en una dirección.
+				
+				Por lo tanto  $E(r,z,t)=E_x(r,t) e^{i(k_0 z - w_0 t)} + E_y(r,t) e^{i(k_0 z - w_0 t)} $
+				
+				tomando \[E(r,z,t)=\frac{\hbar \sqrt{ \gamma_{\bot} \gamma_{||} }}{2\mu } \frac{1}{2} [F(r,z,t) e^{i(k_0 z - w_0 t)} + c.c.]  \]
+				
+				y normalizando $\tau=\gamma_{\bot} t$ , $\eta=\tfrac{z}{L}$ , $v=\frac{c}{L \gamma_{\bot}}$ por lo tanto 
+				\[ \partial_t = \gamma_{\bot} \partial_{\tau} \]
+				\[ \partial_z = \frac{1}{L} \partial_{\eta}  \]
+				
+				
+				$\delta_{ac}'=\frac{w_a - w_0}{\gamma_{\bot}}$
+				donde $w_a$ es la frecuencia de transición atómica, y $w_0$ la frecuencia de la longitud de onda fundamental de la cavidad.
+				
+				
+				\subsubsection{Onda plana}
+				
+				Suponiendo que dentro del  medio el haz de luz es homogéneo en las direcciones transversales (.. in focus)
+				
+				\[ \nabla^2 \bar{E} = \nabla^2_{\bot}\bar{E} + \partial^2_z \bar{E} \approx \partial^2_z \bar{E} \]
+				
+				Por lo tanto 
+				\begin{align*}
+				\partial^2_z \bar{E} &= \frac{\hbar \sqrt{ \gamma_{\bot} \gamma_{||} }}{2\mu }\frac{1}{2} \{ [\partial^2_z F + 2i k_0 \partial_z F -k_0^2 F]e^{i(k_0 z - w_0 t)} + c.c.  \} \\  
+				\partial_t \bar{E} &= \frac{\hbar \sqrt{ \gamma_{\bot} \gamma_{||} }}{2\mu }\frac{1}{2} \{ [\partial_t F - iw_0 F ] e^{i(k_0 z - w_o t)} + c.c. \}  \\
+				\partial^2_t \bar{E} &= \frac{\hbar \sqrt{ \gamma_{\bot} \gamma_{||} }}{2\mu }\frac{1}{2} \{ [ \partial^2_t F -2iw_0 \partial_t F -w_0^2  F  ]e^{i(k_0-w_0t)} +c.c. \} 
+				\end{align*}
+				
+				usando que $k_0=\frac{w_0}{c}$ , entonces $(-k_0^2+\frac{w_0^2}{c^2})F=0$
+				
+				\subsubsection{Variacion lenta de la amplitud}
+				
+				Para los LASER que es busca modelar, debido a las frecuencias en las que funcionan y a la escala temporal tipica a la que suceden las oscilaciones, se puede realizar la siguiente aproximacion:
+				
+				\[ \partial^2_t F\ll 2iw_0 \partial_t F
+				    \]  
+				
+				La cual se la llama Varicion lenta de la amplitud. Parte de la validez de la ecuacion se debe a que la frecuencia del campo en los casos de interes suele estar en el rango visible.
+				
+				Asi como es valido realizar la aproximacion anterior, analogamente se puede realizar la misma aproximacion para la parte espacial. 
+				Esto se debe en parte  a que $\bar{k}=w/c$, que en este caso como $\bar{k}=k\bar{z}$ relaciona directamente $k$ con $w$.
+				
+				
+				 \[\partial^2_z F \ll 2ik_0\partial_z F 
+				 \] 
+				
+				
+				\[ \partial^2_{z} E - \frac{1}{c^2}\partial^2_{t}\approx  \frac{\hbar \sqrt{ \gamma_{\bot} \gamma_{||} }}{2\mu }\frac{1}{2} {[2ik_0 \partial_z F +2i\frac{w_0}{c^2}\partial_t]e^{i(k_0 z -w_0 t)}+c.c.} 
+				\]
+				
+				De manera similar con $P$, y usando maxwell-bloch:
+				
+				\begin{equation}
+				\begin{cases}
+				\partial_{\eta}F+\frac{1}{c/(l\gamma_{\bot})}\partial_{\tau}F= -\frac{\alpha 2 \mu w_0^2}{k_0 \hbar \sqrt{ \gamma_{\bot} \gamma_{||} }} P\\
+				\partial_{\tau} P=-{(1+\delta_{ac}')P+FD}\\
+				\partial_{\tau}D=-\gamma_{||}\{\frac{1}{2}(F^*P+FP^*)+D-D_0\}
+				\end{cases}
+				\label{eq: eqs 1}
+				\end{equation}  %alinear los iguales.
+				
+	\subsubsection{Modulacon de la fase: Modulador electro-optico.}
+				
+				Obs: $I=|E|^2=|E_x|^2+|E_y|^2=I_x+I_y$ porque $E_x\cdot E_y=0$. Es decir que no hay terminos de interferencia entre las dos polarizaciones. Toda la interaccion pasa por los atomos dentro del medio.
+				
+				Redefiniendo las constantes de la ecuacion \ref{eq: eqs 1}
+				
+				\begin{equation}
+				\begin{cases}
+				\frac{c}{l\gamma_{\bot}}\partial_{\eta}F+\partial_{\tau}F= \mu P\\
+				\partial_{\tau} P=-{(1+\delta_{ac}')P+FD}\\
+				\partial_{\tau}D=-\gamma_{||}\{\frac{1}{2}(F^*P+FP^*)+D-D_0\}
+				\end{cases}
+				\label{eq: eqs 2}
+				\end{equation}  %alinear los iguales.
+				
+				\begin{figure}[htc]
+					\begin{center}
+						
+						\begin{tikzpicture}
+						\coordinate (O) at (-3,-0.5);
+						\coordinate (A) at (0,-0.5);
+						\coordinate (B) at (0,.5);
+						\coordinate (C) at (-3,.5);
+						\draw[fill=grey,opacity=.7] (O)--(A)--(B)--(C)--cycle;
+						
+						\coordinate (OO) at (0,0);
+						\coordinate (D) at (4,0);
+						\draw[ultra thick, color=red,->] (OO)--(D);
+						
+						\coordinate (F) at (4,-0.5);
+						\coordinate (G) at (5,-0.5);
+						\coordinate (H) at (5,.5);
+						\coordinate (I) at (4,.5);
+						\draw[fill=orange,pattern=north east lines,opacity=.4] (F)--(G)--(H)--(I)--cycle;
+						
+						\coordinate (J) at (5,0);
+						\coordinate (K) at (9,0);
+						\draw[ultra thick, color=red,->] (J)--(K);
+						
+						\tkzLabelSegment[below=2pt](F,G){Modulador Electro Optico}
+						\tkzLabelSegment[above=2pt](OO,D){$I$}
+						
+						\end{tikzpicture}
+						\caption{Modulador esquema}
+						\label{fig: EOM}
+					\end{center}
+					
+				\end{figure}
+				
+				
+				Antes de pasar por el modulador electro óptico (EOM), $I=I_x+I_y$, luego de pasar por el modulador electro óptico $I=\alpha^2 I_x+\beta^2 I_y$
+				
+				\begin{equation}
+				\begin{bmatrix}
+				E_x\\
+				E_y
+				\end{bmatrix}
+				=
+				\begin{bmatrix}
+				E_{0x}e^{i\phi_x}\\
+				E_{0y}e^{i\phi_y}
+				\end{bmatrix}
+				e^{i(kz-wt)}
+				\label{eq: EOM 1}
+				\end{equation}
+				
+				Pensando al \textit{EOM} como una celda de Pockell que se comporta como una placa .... .
+				Eligiendo los ejes del EOM, la ecuacion \ref{eq: EOM 1} como
+				
+				\begin{equation}
+				E_{in}=
+				\begin{bmatrix}
+				E_{x}\\
+				E_{y}e^{i\delta_y}
+				\end{bmatrix}
+				\label{eq: EOM 2}
+				\end{equation}
+				
+				\begin{equation}
+				E_{out}=
+				\begin{bmatrix}
+				E_{x}\\
+				E_{y}e^{i(\delta_y + \Delta \phi)}
+				\end{bmatrix}
+				\label{eq: EOM 3}
+				\end{equation}
+				
+				donde $\Delta \phi $ para el EOM esta dado por 
+				
+				\begin{equation}
+				\Delta \phi = \Delta \phi_0 - \pi \frac{V}{V_{\pi}}
+				\end{equation}
+				
+				donde $V_{\pi}$ es el voltaje que produce una variación en la birrefringencia equivalente a un cambio de fase de $\pi $ .
+				
+				\[ \Delta \phi_0 =[2\pi(n_e-n_0)\tfrac{L}{\lambda}] \]
+				
+				donde $n_e$ es el indice extraordinario, y $n_0$ es el indice ordinario. $ L$ es la longitud del cristal y $\lambda $ la longitud de onda en el vacio.
+				
+				
+				\begin{equation}
+				E_{out}=
+				\begin{bmatrix}
+				1 & 0\\
+				0 & e^{-i\Delta \phi}
+				\end{bmatrix}
+				\begin{bmatrix}
+				E_{x}\\
+				E_{y}e^{i\delta_y }
+				\end{bmatrix}
+				\label{eq: EOM 4}
+				\end{equation}
+				
+				Por lo tanto, luego de reflejarse en los espejos, los campos quedan descriptos por 
+				
+				\begin{equation}
+				\begin{cases}
+				
+				E'_x=R E_x\\
+				E'_y=R E_y e^{-i(\Delta \phi - \delta_y)}
+				\end{cases}
+				\end{equation}
+				
+				calculando ahora el valor de $I'$ se obtiene que , desperdiciando las perdidas, $I'=I$.
+				
+				\subsection{Condiciones de borde}
+				
+				
+			
+				\begin{align}
+				F_x(\eta,\tau)|_{\eta=0}&=R F_x(\eta,\tau)|_{\eta=1}\\
+				F_y(\eta,\tau)|_{\eta=0}&=R F_y(\eta,\tau)|_{\eta=1} e^{-i\Delta \phi}
+				\end{align}
+				\label{eq: cc}
+			
+				
+				donde 
+				
+				\begin{equation}
+				\begin{cases}
+					F_x(\eta,\tau)=E_x(\eta,\tau)e^{-\eta \ln(R)}\\
+					\tilde{P_x}(\eta,\tau)=P_x e^{-\eta \ln(R)}\\			
+					F_y(\eta,\tau)=E_y(\eta,\tau)e^{-\eta \ln(R)}e^{i\Delta \phi \eta}\\
+					\tilde{P_y}(\eta,\tau)=P_y e^{-\eta \ln(R)}e^{i\Delta \phi \eta}
+				\end{cases}
+				\end{equation} 			
+				
+				Reemplazando en las ecuaciones \ref{eq: cc} se obtiene
+				\begin{equation}
+				E_x(0,\tau)=R E_x(1,\tau)e^{-ln(R)}
+				\label{eq: cc2}
+				\end{equation}
+				
+				condición de contorno de ring laser: $E(0,\tau)=E(1,\tau)$
+				
+		Finalmente se obtienen las ecuaciones que vamos a estudiar:
+		
+		\[
+		\begin{cases}
+		\partial_{\tau} E_x=-k E_x + \mu P_x \\
+		\partial_{\tau} E_y=-k E_y + \mu P_y + i(\Delta \phi_0 + m.cos(w_{mod}\tau))E_y \\
+		\partial_{\tau} P_{x,y}=-(1+i\delta)P_{x,y}+E_{x,y}D \\
+		\partial_{\tau} D=-\gamma_{||}(D-D_0+\tfrac{1}{2}(E^*_{x,y}P_{x,y}+E_{x,y}P^*_{x,y})) \\
+		\end{cases}
+		\label{eq: final eqs 1}
+		\]
+		
+%		
+%		with $ E_{x,y}$ and $P_{x,y}$  $\in \mathbb{C}$
+%		
+		donde 
+		\begin{itemize}
+			\item $k$ es la razón entre el ancho de la cavidad (cavity linewidth) y el ancho espectral (atomic linewidth).
+			\item $\mu$ es la ..
+			\item $\delta $  es un parámetro de sintonizacion (detuning) de la cavidad.
+			\item $\Delta \phi_0 $ es el  \textit{offset} de la modulación . La correlación física de $\Delta \phi_0 $ es la birrefringencia del medio, sumada al cambio de fase inducido por el modulador electro óptico .
+			\item $m$ es la amplitud de la modulación . Físicamente ..
+			\item $D_0$ 
+			\item $\tau$ es el tiempo normalizado.
+			\item $\gamma_{||}$ es taza de relajación para la inversión de población (relaxation rate) .
+			\item $\gamma_{\bot}$ es ancho espectral (atomic lindewidth) .
+		\end{itemize}
+		
+		
+		Escribiendo los campos como parte real e imaginaria:
+		
+		\[
+		\begin{cases}
+		\partial_{\tau} Re(E_x)=-k Re(E_x) + \mu Re(P_x) \\
+		\partial_{\tau} Im(E_x)=-k Im(E_x) + \mu Im(P_x) \\
+		\partial_{\tau} Re(E_y)=-k Re(E_y) + \mu Re(P_y) -(\Delta \phi_0 + m.cos(w_{mod}.\tau)).Im(E_y) \\
+		\partial_{\tau} Im(E_y)=-k Im(E_y) + \mu Im(P_y) + (\Delta \phi_0 + m.cos(w_{mod}.\tau)).Re(E_y) \\
+		\partial_{\tau} Re(P_{x,y})=-(Re(P_{x,y})-Im(P_{x,y})\delta)+Re(E_{x,y}).D \\
+		\partial_{\tau} Im(P_{x,y})=-(Im(P_{x,y})+Re(P_{x,y})\delta)+Im(E_{x,y}).D \\
+		\partial_{\tau} D=-\gamma_{||}(D-D_0+(Re(E_{x,y})Re(P_{x,y})+Im(E_{x,y})Im(P_{x,y}))) \\
+		\end{cases}
+		\]
+		
+		\begin{lstlisting}
+		def mb(y, t,k,mu,Dphi0,d,g,D0,m,wf):
+		""" y[0],y[1] campo electrico en x. y[2],y[3] campo electrico en y, y[4],y[5]  polarizacion en x, y[6],y[7]  polarizacion en y, y[8] poblacion. """
+		dfxr=-k*y[0]+mu*y[4]
+		dfxi=-k*y[1]+mu*y[5]
+		dfyr=-k*y[2]+mu*y[6]-y[3]*(Dphi0+m*np.cos(wf*t))
+		dfyi=-k*y[3]+mu*y[7]+y[2]*(Dphi0+m*np.cos(wf*t))
+		drxr=-(1*y[4]-d*y[5])+y[0]*y[8]
+		drxi=-(1*y[5]+d*y[4])+y[1]*y[8]
+		dryr=-(1*y[6]-d*y[7])+y[2]*y[8]
+		dryi=-(1*y[7]+d*y[6])+y[3]*y[8]
+		ddelta=-g*(y[8]-D0+(y[0]*y[4]+y[1]*y[5]+y[2]*y[6]+y[3]*y[7]))
+		return [dfxr,dfxi,dfyr,dfyi,drxr,drxi,dryr,dryi,ddelta]
+		\end{lstlisting}
+		
+		Normalizations made: 
+		$\tau= \gamma_{\bot}.t$, $k=\tfrac{\bar{k}}{\gamma_{\bot}}$,  $\gamma_{\parallel}=\tfrac{\bar{\gamma_{\parallel}}}{\gamma_{\bot}}$, $\eta=\tfrac{z}{L}$, $\delta'_{ac}=\tfrac{w_a-w_0}{\gamma_{\bot}}$
+		
+		
+		Aproximations: 
+		
+		1-$k,\gamma_{\parallel}<<\gamma_{\bot}$   -- Homogenously broadened laser linewidth $ \nabla^2 E-\frac{1}{c^2}\partial^2_{t}E=\alpha \partial^2_{t}E$
+		
+		2-Plane wave: $\nabla^2_{\bot}=0$
+		
+		3-Two level medium
+		
+		4-Slowly varying amplitud
+		
+		5-Unidirectional field
+		
+		6-Rotating wave approx $\partial_{t^2}<<\partial_t$
+		
+		7-Single longitudinal mode
+		
+		8-$g'->0$, $R_0->1$  -- Uniform field limit
+		
+		9-$m$,$w_{mod}<<1$, $w_{mod}<<\gamma_{\bot}$ % ..chequear..

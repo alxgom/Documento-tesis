@@ -1,0 +1,54 @@
+\begin{figure}[htc]
+	\begin{center}
+		
+		\begin{tikzpicture}
+		\tikzstyle{level}=[draw=none,minimum width=1.5cm,minimum height=0.01cm]
+		\tikzstyle{snakeline} = [decorate, decoration={pre length=0.2mm,
+			post length=1mm, snake, amplitude=.4mm,
+			segment length=2mm}, ->]
+		\tikzstyle{connector} = [->]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+		\node (A1) at (0,-1) [level,label={below: Absorcion} ]  {};
+		\node (O1) at (0,0) {};
+		\node (B1) at (0,1) [level,label={above:$a^{\dagger}\sigma^+$}] {};
+		
+		\draw (A1.west)--(A1.east);
+		\draw (B1.west)--(B1.east);
+		\draw[connector] (A1)--(B1);
+		\draw[snakeline] ($(O1)-(1.0cm,0cm)$) -- node[above left] {$\gamma$} ++(O1);
+%		\tkzLabelSegment[below=2pt](F,G){Modulador Electro Optico}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			
+		\node (A2) at (4,-1) [level,label={below: No conserva E} ]  {};
+		\node (O2) at (4,0) {};
+		\node (B2) at (4,1) [level, label={above:$a^{\dagger}\sigma^-$}] {};
+		
+		\draw (A2.west)--(A2.east);
+		\draw (B2.west)--(B2.east);
+		\draw[connector] (B2)--(A2);
+		\draw[snakeline] ($(O2)-(1.0cm,0cm)$) -- node[above left] {$\gamma$} ++(O2);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\node (A3) at (8,-1) [level,label={below: No conserva E}]  {};
+		\node (O3) at (8,0) {};
+		\node (B3) at (8,1) [level, label={above:$a\sigma^+$}] {};
+		
+		\draw (A3.west)--(A3.east);
+		\draw (B3.west)--(B3.east);
+		\draw[connector] (A3)--(B3);
+		\draw[snakeline] (O3) -- node[above right] {$\gamma$} ++(1.0cm,0cm);
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		\node (A4) at (12,-1) [level,label={below: Emision}, label={right:$|1>$}]  {};
+		\node (O4) at (12,0) {};
+		\node (B4) at (12,1) [level, label={above:$a\sigma^-$}, label={right:$|2>$}] {};
+		
+		\draw (A4.west)--(A4.east);
+		\draw (B4.west)--(B4.east);
+		\draw[connector] (B4)--(A4);
+		\draw[snakeline,label={[above right]{$\gamma$}}] (O4) -- node[above right] {$\gamma$} ++(1.0cm,0cm);
+		
+		
+		\end{tikzpicture}
+		\caption{Interacciones del átomo de dos niveles}
+		\label{fig: interacciones}
+	\end{center}
+\end{figure} 

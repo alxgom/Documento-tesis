@@ -1,0 +1,272 @@
+\section{Detalles del código}
+
+Para realizar las integraciones del código se utilizo la librería \texttt{scypi.odeint}.
+
+Como la integración se realiza en la  escala temporal de $\tau$ los resultados deben ser reescaleados .
+
+Para reescalear los tiempos se multiplica a los mismos por $\gamma_{\bot}$, por ultimo se multiplica a esta valor por $10^{-6}$ para pasar la escala a microsegundos.
+Para la frecuencia utilizada, como la misma aparece en $\cos(\hat{w}\tau)$, $\hat{w}=w \gamma_{\bot}$. Por lo tanto para reescalear $\hat{w}$ en $w$ se $w=\frac{\hat{w}}{\gamma_{\bot}}$. Por ultimo para pasar este valor a kHz, se lo multiplica por  $10^{-3}$.
+
+\begin{figure}[h]
+	\includegraphics[width= 0.5\linewidth]{../Python/Imagenes especiales para la tesis/chequeo_1khz}
+	\caption{Chequeo del reescaleo. $\cos(wt)$ con $w=6,28$kHz, o $\nu = 1$kHz. $\hat{w}=0,00000628$}
+\end{figure}
+
+Chequeo del reescaleo. $\cos(wt)$ con $w=6,28$kHz, o $\nu = 1$kHz. $\hat{w}=0,00000628$ .
+
+	\subsection{Código utilizado para los barridos.}
+	
+	\begin{lstlisting}
+
+"""
+Integrates the maxwell-block equations with a modulation on the polarization phase.
+Swypes the value of the frequency modulation and output files needed to plot an
+stroboscopic map.
+
+Modification of swype_w_max so that the new initial condition for each step comes from the last maximum value of the previous iteration.
+This might me usefull to better tack trayectories from others wich migh share a basin in some part of the phase space, but not where the maximum is reached.
+
+"""
+
+import numpy as np
+from scipy.integrate import odeint
+from scipy.signal import argrelextrema
+from time import localtime
+import time as timing
+import shutil
+
+pi=np.pi
+
+def editline(file,n_line,text):
+	with open(file) as infile:
+	lines = infile.readlines()
+	lines[n_line] = text+' \n'
+	with open(file, 'w') as outfile:
+	outfile.writelines(lines)  
+
+def mb(y, t,k,mu,Dphi0,d,g,D0,m,wf):
+	""" y[0],y[1] campo electrico en x. y[2],y[3] campo electrico en y, y[4],y[5]  polarizacion en x, y[6],y[7]  polarizacion en y, y[8] poblacion. """
+	dfxr=-k*y[0]+mu*y[4]
+	dfxi=-k*y[1]+mu*y[5]
+	dfyr=-k*y[2]+mu*y[6]-y[3]*(Dphi0+m*np.cos(wf*t))
+	dfyi=-k*y[3]+mu*y[7]+y[2]*(Dphi0+m*np.cos(wf*t))
+	drxr=-(1*y[4]-d*y[5])+y[0]*y[8]
+	drxi=-(1*y[5]+d*y[4])+y[1]*y[8]
+	dryr=-(1*y[6]-d*y[7])+y[2]*y[8]
+	dryi=-(1*y[7]+d*y[6])+y[3]*y[8]
+	ddelta=-g*(y[8]-D0+(y[0]*y[4]+y[1]*y[5]+y[2]*y[6]+y[3]*y[7]))
+	return [dfxr,dfxi,dfyr,dfyi,drxr,drxi,dryr,dryi,ddelta]
+
+#%%
+#Read parameters from 'Params.txt', set.
+txtfile=open("Params.txt")
+tempvar=txtfile.readlines()
+
+'''parameters for normalization'''
+a= float(tempvar[1].split()[1])
+gperp= float(tempvar[2].split()[1])  #gamma perpendicular, loss rate
+scale=1*(10.**6)/gperp #scale to micro seconds
+wscale=1000*gperp/(10.**6)#scale frequency to khz
+
+'''parameters for the equation'''
+kr= float(tempvar[3].split()[1])
+k=kr/gperp #normalized loss rate
+mu= float(tempvar[4].split()[1])
+Dphi0= float(tempvar[5].split()[1]) #phase shift [-pi,pi]
+d= float(tempvar[6].split()[1])#detuning
+gr= float(tempvar[7].split()[1])
+g=gr/gperp #*((2*pi)**2) #sigma parallel, normalized loss rate
+D0=a*k/mu #Poblation
+m= float(tempvar[8].split()[1]) #modulation amplitud [0,1]
+wf= float(tempvar[9].split()[1])
+print 'Params: ', a,gperp,kr,mu,Dphi0,d,gr,m,wf
+
+'''parameters to compare with the results'''
+w_res=np.sqrt(k*g*((D0*mu/k)-1.))*wscale #resonance frequency
+a=D0*mu/k
+w=np.sqrt(k*g*(a-1.)-(g*g*a*a)/4)*wscale #Relaxation oscilations frequency
+wf_real=wf*wscale
+
+'''Parameters for swype'''
+par_max= float(tempvar[11].split()[1])
+par_min= float(tempvar[12].split()[1])
+h= float(tempvar[13].split()[1])
+direction= tempvar[16].split()[1]
+
+txtfile.close()
+
+txtfile=open("Status.txt",'r')
+tempvar=txtfile.readlines()
+stat= int(tempvar[0].split()[1])
+print 'Status=', stat
+txtfile.close()#deberia cerrarlo aca?    
+
+#%%        
+def swipe(m,k,mu,Dphi0,d,g,D0,wf,par_max,par_min,h,direction):
+	'''Swype parameters'''
+	
+	nintime_periods=110
+	nperiods=50
+	
+	if direction != 'increasing' and direction != 'decreasing' :
+		'''Swype direction bad defined '''
+		print 'Error!. Swype direction Bad defined'
+		return
+	
+	print 'Program: swype_w_max'
+	print 'total number of steps: %s' %((par_max-par_min)/h)
+	print 'direction: ' , direction
+	
+	if stat==0:    
+		'''User defined initial condition'''
+		dim=9        
+		yinit=np.empty(dim)
+		txtfile=open("Params.txt",'r')
+		tempvar=txtfile.readlines()
+		for j in range(dim):
+			yinit[j]=float(tempvar[22].split()[-dim+j])
+		timeinit=float(tempvar[19].split()[1])
+		txtfile.close()
+		
+		if direction=='increasing':
+			wf=par_min   
+		elif direction=='decreasing':
+			wf=par_max
+		
+		binwrite=open('w_max.in','wb')#clear w_max and strobo
+		binwrite.close()
+		binwrite=open('max_peak.in','wb')
+		binwrite.close()
+		binwrite=open('benchmark.in','wb')# to save runtimes
+		binwrite.close()
+		binwrite=open('Initial_conditions.txt','w')# to save runtimes
+		binwrite.close()
+		
+		editline('Params.txt',9,'wf: %f' %wf)#update next wf to file
+		editline('Status.txt',0,'Stat: 1') #set status to continue
+	
+	elif stat==1:  
+		yinit=np.fromfile('yinitials.in',dtype=np.float64)
+		timeinit=np.fromfile('tinitials.in',dtype=np.float64)
+	
+	elif stat==2: # if stat =2 rerun from manual usr input.
+		txtfile=open("Status.txt",'r')
+		tempvar=txtfile.readlines()
+		old_w=float(tempvar[3].split()[1])
+		old_time=float(tempvar[3].split()[4])
+		dim=9
+		old_y=np.empty(9)
+		for j in range(dim):
+			old_y[j]=float(tempvar[3].split()[-dim+j])
+		np.ndarray.tofile(old_y,'yinitials.in')
+		np.ndarray.tofile(np.array(old_time),'tinitials.in')#no necesito abrir el archivo con
+		yinit=old_y        
+		timeinit=np.array([old_time])               
+		wf=old_w
+		editline('Params.txt',9,'wf: '+repr(wf))#update next m to file               
+		editline('Status.txt',0,'Stat: 1')      
+	
+	'''swipe''' 
+	while wf<(par_max+h):
+		if wf<par_min:
+			return
+	
+		tin=timing.time()
+		
+		#intime=500.*11.3*10**(-6)*gperp #integration time FOR TRANSITORY  
+		intime=nintime_periods*2*pi/wf
+		keeptime=nperiods*2*pi/wf
+		
+		print 'integrating wf= '+repr(wf), 
+		
+		newline=open('Initial_conditions.txt','a')
+		newline.write('wf= '+repr(wf)+' , tinit= '+repr(timeinit)+' , yinit= '+repr(yinit[0])+' '+repr(yinit[1])+' '+repr(yinit[2])+' '+repr(yinit[3])+' '+repr(yinit[4])+' '+repr(yinit[5])+' '+repr(yinit[6])+' '+repr(yinit[7])+' '+repr(yinit[8])+' \n' )          
+		newline.close()
+		
+		'''Transitory integration'''
+		trans_step=int(intime/20.)
+		time_trans = np.linspace(timeinit ,intime+timeinit , trans_step) #cambiar por linspace
+		y_trans = odeint(mb, yinit,time_trans,args=(k,mu,Dphi0,d,g,D0,m,wf))
+		timeinit=time_trans[-1]
+		
+		
+		'''integration'''
+		time_step=int(keeptime/1.)
+		time = np.linspace(timeinit ,keeptime+timeinit , time_step) #cambiar por linspace
+		y = odeint(mb, y_trans[-1], time,args=(k,mu,Dphi0,d,g,D0,m,wf))
+		
+		'''set intensitys'''
+		#        intensity_ex=np.sqrt(y[:,0]**2+y[:,1]**2)
+		#        intensity_ey=np.sqrt(y[:,2]**2+y[:,3]**2)
+		intensity=np.sqrt(y[:,0]**2+y[:,1]**2+y[:,2]**2+y[:,3]**2)
+		
+		'''map'''
+		extrema=argrelextrema(intensity, np.greater)[0]
+		peak_max=intensity[extrema]#intensity strobo. puedo scar el set
+		w_peaks=wf*np.ones_like(peak_max)#vector or m, the same lenght as peak_max     
+		
+		if direction=='increasing':
+			wf=wf+h   #ste next wf
+			timeinit=time[extrema[-1]]*(1-h/wf)#New initial time is the last maximum time
+		elif direction=='decreasing':
+			wf=wf-h
+			timeinit=time[extrema[-1]]*(1+h/wf)#New initial time is the last maximum time
+		
+		yinit=y[extrema[-1]]
+		
+		'''save'''
+		editline('Params.txt',9,'wf: '+repr(wf))#update next wf to file
+		
+		binwrite=open('w_max.in','ab')
+		w_peaks.tofile(binwrite)
+		binwrite.close()
+		binwrite=open('max_peak.in','ab')
+		peak_max.tofile(binwrite)
+		binwrite.close()
+		
+		np.ndarray.tofile(yinit,'yinitials.in')
+		np.ndarray.tofile(np.array(timeinit),'tinitials.in')
+		
+		runtime=timing.time()-tin
+		binwrite=open('benchmark.in','ab')
+		np.array([wf+h,runtime]).tofile(binwrite)
+		binwrite.close() 
+		print 'runtime: %.2f s' %(runtime)
+		
+	return 
+
+#%%    
+'''run main program'''
+swipe(m,k,mu,Dphi0,d,g,D0,wf,par_max,par_min,h,direction)    
+#%%
+editline('Status.txt',0,'Stat: 0') #set status to continue
+
+#%%
+'''write the results to a subfolder ../Results  (so i can plot them again if needed)'''
+
+binwrite=open('Results/%d_%d_%d-%d.%d.%d-w_max.in' % tuple(list(localtime()[0:6])),'wb') 
+w_peks=np.fromfile('w_max.in',dtype=np.float64)
+w_peks.tofile(binwrite)
+binwrite.close()        
+binwrite=open('Results/%d_%d_%d-%d.%d.%d-max_peak.in'  %localtime()[0:6] ,'wb')
+peak_max=np.fromfile('max_peak.in',dtype=np.float64)
+peak_max.tofile(binwrite)
+binwrite.close()
+
+shutil.copyfile('Initial_conditions.txt','Results/'+'%d_%d_%d-%d.%d.%d-Initial_conditions.txt' %localtime()[0:6])
+shutil.copyfile('Params.txt','Results/'+'%d_%d_%d-%d.%d.%d-params.txt' %localtime()[0:6])
+
+	\end{lstlisting}
+%	Para realizar las integraciones del código se utilizo la librería \texttt{spypi.odeint}.
+	
+%	Como la integración se realiza en la  escala temporal de $\tau$ los resultados deben ser reescaleados .
+	
+%	Para reescalear los tiempos se multiplica a los mismos por $\gamma_{\bot}$, por ultimo se multiplica a esta valor por $10^{-6}$ para pasar la escala a microsegundos.
+%	Para la frecuencia utilizada, como la misma aparece en $\cos(\hat{w}\tau)$, $\hat{w}=w \gamma_{bot}$. Por lo tanto para reescalear $\hat{w}$ en $w$ se $w=\frac{\hat{w}}{\gamma_{\bot}}$. Por ultimo para pasar este valor a kHz, se lo multiplica por  $10^{-3}$.
+%	
+%%	\begin{figure}
+%		\includegraphics[width= 0.4\linewidth]{../Python/Imagenes especiales para la tesis/chequeo_1khz}
+%%		\caption{Chequeo del reescaleo. $\cos(wt)$ con $w=6,28$kHz, o $\nu = 1$kHz. $\hat{w}=0,00000628$}
+%%	\end{figure}
+%	
+%	Chequeo del reescaleo. $\cos(wt)$ con $w=6,28$kHz, o $\nu = 1$kHz. $\hat{w}=0,00000628$ .

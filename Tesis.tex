@@ -1,0 +1,72 @@
+\documentclass[a4paper,11pt,spanish,sans,twoside,openright]{book}
+\usepackage{document_style}
+
+\begin{document}
+	
+	\pagenumbering{roman}
+	
+	\input{tex/tesis_caratula}
+	\newpage
+	\input{tex/tesis_hoja2}
+
+	\input{tex/tesis_agradecimientos}
+	
+	\input{tex/tesis_resumen}
+	
+	\cleardoublepage
+	\tableofcontents
+	\newpage
+	
+	\cleardoublepage
+	\setcounter{page}{1}
+	\pagenumbering{arabic}
+	
+	\input{tex/tesis_introduccion}
+	
+	\input{tex/capitulo_Sistema}
+	
+	\input{tex/capitulo_ecsmov}
+	
+	\input{tex/capitulo_semiclasico}
+	
+	\input{tex/capitulo_ecuaciones}
+	
+	\input{tex/capitulo_eleccion_parametros}
+	
+	\input{tex/tesis_ruptura_y_transitorios}
+		
+	\input{tex/tesis_mapas}
+	
+%	\input{tex/capitulo_transitorios}
+	
+%	\input{tex/capitulo_casos}
+
+%	\input{tex/capitulo_multiestability}
+		
+	\input{tex/capitulo_eventos_extremos}
+	
+	\input{tex/capitulo_elim_adiab}
+
+	\input{tex/capitulo_phasepol_extra}	
+	
+	\input{tex/capitulo_detalles_codigo}
+	
+	\input{tex/tesis_conclusiones}
+
+	\clearpage
+%	
+%	\label{Bibliography}
+%	\lhead{\emph{Bibliography}}  % Change the left side page header to "Bibliography"
+%	\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+%	\bibliography{bib/biblio.bib}  % The references (bibliography) information are stored in the file named "Bibliography.bib"
+%	
+	
+	\addcontentsline{toc}{chapter}{Bibliografia}
+%	\chapter{Bibliografia}
+	\label{Bibliography}
+	\bibliographystyle{unsrt}
+	\bibliography{biblio}
+%	\input{./bib/mybibliography.tex}
+%%	\lhead{\emph{Bibliography}}  % Change the left side page header to "Bibliography"
+
+\end{document}

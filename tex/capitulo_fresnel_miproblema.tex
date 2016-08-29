@@ -1,0 +1,30 @@
+\section{El problema que planteo}
+	
+	\subsection{Ecuaciones:} 
+	
+	
+	From the equations from the paper 'spatiotemporal instabilities of lasers in models reduced via center manifold techniques' (DOI: http://dx.doi.org/10.1103/PhysRevA.44.4712)
+	
+	\[
+	\begin{cases}
+	\partial_t E(\rho,\varphi,t)=-k\left([1+m\cos(w_{mod}.t)-i.\left[\delta+a\left[\dfrac{\nabla^2_{\bot}}{4}+1-\rho^2\right]\right]].E-P\right)\\
+	\partial_t P(\rho,\varphi,t)=-(1+i\delta)P+E.D\\
+	\partial_t D(\rho,\varphi,t)=-\gamma_{\parallel}(D-\chi(\rho)+\frac{1}{2}(E^*P+EP^*))
+	\end{cases}
+	\]
+	
+	with $E \in \mathbb{C}$ and $P \in \mathbb{C}$
+	
+	Usando Galerkin:
+	
+	$\begin{cases}
+	\partial_t \psi_{pm}=-k\left( \left[1+m\cos(w_{mod}.t)- i(a +\delta) \right]\psi_{pm}\right)+k p_{pm}\\
+	\partial_t p_{pm}=-(1+i\delta)p_{pm}+\sum\sum \Gamma (\sigma, \sigma', \sigma'') \psi_{p'm'}d_{p''m''}\\
+	\partial_t d_{pm}=-\gamma_{\parallel}(d_{pm}-\chi(\rho)_{pm}+\tfrac{1}{2}\sum\sum [\Gamma (\sigma, \sigma', \sigma'') \psi_{p'm'}^*p_{p''m''} + c.c.])
+	\end{cases}$
+	
+	con
+	
+	$\chi(\rho)=e^{(-1.2 \frac{\rho}{\rho_0})^2}\dfrac{[1+e^{-\rho_0^2}]}{[1+e^{(\rho^2-\rho_0^2)}]}$\\
+	$\Gamma (\sigma, \sigma', \sigma'')=\iint A_{pm}A_{p'm'}A_{p''m''}\rho \, d\!\rho d\!\varphi  $
+	

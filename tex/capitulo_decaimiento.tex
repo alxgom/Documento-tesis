@@ -1,0 +1,244 @@
+\section{Ruptura de simetría y decaimiento de $|E_x|$}
+
+	\subsection{Intensidad y fase }
+	
+	Intensidades:\\
+	
+	Para la situaciones en las que decae el campo en la direccion $X$, si no se tiene en cuenta toda la dinamica en esa direccion, se intenta reescribir el termino de en $y$ para la intensidad y la fase.
+	
+	Definiendo $I_y=Re(E_y)^2+Im(E_y)^2$, y recordando que 
+	\[
+	\begin{cases}
+	\partial_{\tau} Re(E_y)=-k Re(E_y) + \mu Re(P_y) -(\Delta \phi_0 + m.cos(w_{mod}.\tau)).Im(E_y) \\
+	\partial_{\tau} Im(E_y)=-k Im(E_y) + \mu Im(P_y) + (\Delta \phi_0 + m.cos(w_{mod}.\tau)).Re(E_y) \\
+	\end{cases}
+	\]
+	
+	$\partial_{\tau}I_y=2 Re(E_y)\partial_{\tau}Re(E_y)+2 Im(E_y)\partial_{\tau}Im(E_y)=E_y^*\partial_{\tau}E_y+E_y\partial_{\tau}E_y^*$
+	
+	por lo tanto queda que 
+	
+	$\partial_{\tau}I_y=2 [Re(E_y)(-k Re(E_y) + \mu Re(P_y) - \Delta \phi.Im(E_y))+ Im(E_y)(-k Im(E_y) + \mu Im(P_y) + \Delta \phi .Re(E_y))$] \\
+	
+	con lo cual se anulan los términos que tiene la modulación de manera explicita. Reescribiendo un poco la ecuación, se obtiene
+	
+	\begin{equation}
+	\partial_{\tau}I_y=2[-k I_y +\tfrac{1}{2}\mu[E^*_yP_y+E_yP^*_y]   ] 		
+	\end{equation}
+	
+	
+	Dado que la modulación se anula, el mismo procedimiento se puede realizar para la intensidad en x y la intensidad total.
+	
+	\begin{align}
+	\partial_{\tau}I_x &= 2[-k I_x +\tfrac{1}{2}\mu[E^*_xP_x+E_xP^*_x] ]  \\
+	\partial_{\tau}I &= 2[-k I +\tfrac{1}{2}\mu[E^*_xP_x+E_xP^*_x+E^*_yP_y+E_yP^*_y]]
+	\end{align}
+	
+	Fase:\\
+	
+	Siendo que para un numero complejo $Z$, $\psi=\arctan(\frac{Im(z)}{Re(z)})$
+	
+	\[  \psi_y= \arctan(\frac{Im(E_y)}{Re(E_y)}) \]
+	
+	por  lo tanto , notando $Im(E_y)=E_{yi}$, $Re(E_y)=E_{yr}$ y $\Delta \phi=\Delta \phi_0 + m.cos(w_{mod}.\tau) $ :
+	
+	\begin{align}
+	\partial_{\tau}\psi_y  &= \frac{1}{ 1+\frac{ E^2_{yi} }{ E^2_{yr} } }\frac{ E_{yr} \partial_{\tau}( E_{yi} ) - E_{yi} \partial_{\tau}( E_{yr} ) }{ E^2_{yr} } \\ 
+	&= \frac{ E_{yr} ( -kE_{yi}+\mu P_{yi}+\Delta \phi E_{yr} ) -  E_{yi} ( -kE_{yr}+\mu P_{yr}-\Delta \phi E_{yi} ) }{ I_y } \\
+	&= \frac{ \mu ( P_{yi} E_{yr} - P_{yr} E_{yi} ) }{ I_y } + \Delta \phi	
+	\end{align}
+	
+	Llamativamente, queda de manera explicita la dependencia con la modulación.
+	
+	Haciendo lo mismo en $x$, las ecuaciones de los campos eléctricos se pueden reescribir como :
+	\begin{equation}
+	\begin{cases}
+	\partial_{\tau}I_y=2[-k I_y +\tfrac{1}{2}\mu[E^*_yP_y+E_yP^*_y]   ] \\
+	\partial_{\tau}I_x=2[-k I_x +\tfrac{1}{2}\mu[E^*_xP_x+E_xP^*_x]   ]	\\	
+	\partial_{\tau}\psi_y  = \frac{ \mu ( P_{yi} E_{yr} - P_{yr} E_{yi} ) }{ I_y } + \Delta \phi \\
+	\partial_{\tau}\psi_x  = \frac{\mu(P_{xi}E_{xr}-P_{xr}E_{xi})}{I_x}
+	\end{cases}
+	\label{eq: int y fases}
+	\end{equation}
+	
+	
+	%		\subsubsection{Eliminación adiabatica}
+	%		
+	%		Si se supone que la polarizacion es proporcional a los campos electricos respectivos, osea $P_{x,y} = \alpha E_{x,y}$, entonces 
+	%		
+	%		\[ 
+	%			\begin{cases}
+	%				\partial_{\tau}I^2_y=2[-k I^2_y +\tfrac{1}{2}\mu \alpha I^2_y ] \\  
+	%				\partial_{\tau}I^2_x=2[-k I^2_x +\tfrac{1}{2}\mu \alpha I^2_x ]\\
+	%				\partial_{\tau}\psi_y  = \Delta \phi\\
+	%				\partial_{\tau}\psi_x  = 0
+	%			\end{cases}
+	%		\]
+	
+	
+	Finalmente, para la polarización del haz.
+	
+	$\Psi=\arctan(\frac{E_{yr} }{E_{xr} })$
+	
+	\begin{equation}
+	\partial_{\tau}\Psi  = \frac{\mu(P_{yr}E_{xr}-P_{xr}E_{yr})-\Delta \phi E_{xr}E_{yr}}{E^2_{yr}+E^2_{xr}}
+	\end{equation}
+	
+	
+	
+	%		por ultimo, como $I=\rho^2$, entonces $\partial_{\tau}I=2 \partial_{\tau}\rho$
+	%		
+	%		\[
+	%		\begin{cases}
+	%		\partial_{\tau} I_x=2[-k \rho_x + \alpha \mu\rho_x D] \\
+	%		\partial_{\tau} \varphi_x=-\alpha \mu \tilde{\delta} D +\tilde{\delta w}\
+	%		\partial_{\tau} I_y=2[-k \rho_y + \alpha \mu\rho_y D] \\
+	%		\partial_{\tau} \varphi_y=-\alpha \mu \tilde{\delta} D +\tilde{\delta w}+\Delta \phi \\
+	%		\partial_{\tau} D=-\gamma_{||}(D-D_0+\alpha D I) \\
+	%		\end{cases}
+	%		\]
+	%		
+	
+	\subsection{Ruptura de simetría}
+	
+	Durante las simulaciones se observo que prevalecen los casos en los que el campo $E_x$ decae y la única dinámica significativa para en el eje $y$.
+	
+	Para estudiar esto , basándonos en los resultados obtenidos reescribiendo los campos electricos para la intensidad y la fase \ref{eq: int y fase}, se procedió a integrar al sistema partiendo de una condición inicial simetrica $E=(1+i1,1+i1)$ ,$ P=(300+i300,300+i300)$, $D=6000$ para el sistema sin modulación ($\Delta \phi_0=0$, $m=0$) como se muestra en la figura \ref{fig: ci simetrica2} y luego haciendo lo mismo para el sistema con $\Delta \phi_0=0.01$ (figura \ref{label}) y $\Delta \phi_0=-0.01$ (figura \ref{label}).
+	
+	Se eligieron estos valores ya que son comparables con los valores utilizados para el parámetro $m$ .
+	
+		\begin{figure}[htc]
+			
+			\includegraphics[width= .7\linewidth]{../Python/integ directa/Results/2016_8_10-15.4.54-E_intensitys.png}
+			\caption{Evolución del sistema para una condición inicial simetrica $E=(1+i1,1+i1)$ ,$ P=(300+i300,300+i300)$, $D=6000$ para el sistema sin modulación ($\Delta \phi_0=0$, $m=0$)}
+			\label{fig: ci simetrica2}
+		\end{figure}
+		
+		\begin{figure}[htc]
+			\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/2016_8_10-15.22.13-E_intensitys.png}
+			\caption{Evolución del sistema para una condición inicial simétrica $E=(1+i1,1+i1)$ ,$ P=(300+i300,300+i300)$, $D=6000$ para el sistema con ($\Delta \phi_0=0.01$ y  $m=0$}
+			\label{fig: ci delta phi 0.01}
+		\end{figure}
+		\begin{figure}[htc]
+			\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/2016_8_10-15.19.0-E_intensitys.png}
+			\caption{Evolución del sistema para una condición inicial simétrica $E=(1+i1,1+i1)$ ,$ P=(300+i300,300+i300)$, $D=6000$ para el sistema con $\Delta \phi_0=-0.01$ y $m=0$}
+			\label{fig: ci delta phi -0.01}
+		\end{figure}
+		
+	Como se puede observar en este el signo de $\Delta \phi_0$ causa una ruptura de simetría que provoca el decaimiento exponencial de uno de los dos campos.
+	
+	Esto se puede empezar a entender a partir de los resultados obtenidos de la eliminación abdicativa \ref{eq: elim adiabatica}, en los cuales que muestra que la modulación afecta directamente a la fase $\varphi_y$. Esto implicaría que afecta la ganancia que tiene este mismo campo. Por lo tanto, si tiene una ganancia mayor a la del campo en el eje $x$, esta diferencia provocaría que la influencia de la población en este campo crezca exponencialmente , de manera equivalente, la población tiene una influencia que decae exponencialmente en el campo con menor ganancia.
+	
+	Esto se debe a que para un valor constante de población en el medio, se puede pensar que la misma es un recurso constante del cual los campos subsisten para poder mantenerse. Lo que puede entenderse como una especie de  'competencia'.
+	
+	\textcolor{red}{Escribir mejor esto, poner algún gráfico que lo esclarezca.}	
+	
+		
+		\begin{center}
+			\includegraphics[width= 0.6\linewidth]{../Python/integ directa/Results/2016_7_27-13.38.21-E_intensitys.png}
+			\captionof{figure}{Evolución del sistema sin modulación a partir de la condición inicial asimétrica: $E=(1+i1,1+i1)$ ,$ P=(300+i300,300+i300)$, $D=6000$}
+		\end{center}
+		
+		
+		
+		\begin{center}
+			\includegraphics[width= 0.6\linewidth]{../Python/integ directa/Results/2016_7_27-13.13.55-E_intensitys.png}
+			\captionof{figure}{Evolución del sistema sin modulación a partir de la condición inicial asimétrica:$E=(1+i1,1+i1)$ ,$ P=(300+i300,300+i300)$, $D=6000$}
+		\end{center}
+		
+		
+	\subsection{Casos con modulación dependiente del tiempo}
+	
+	En el estudio realizado se observo que con $m=0.02$, para valores de frecuencia mayores a $121.76 $Khz no se pudieron encontrar condiciones iniciales que terminen en una órbita estable en la cual el campo el modulo del campo eléctrico en la dirección $x$ ($|E_x|$) no decae con el tiempo como se muestra en la figura ?????.
+	
+	
+	\begin{minipage}{0.7\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-18.50.39-E_intensitys.png}
+		
+	\end{minipage}
+	
+	\begin{minipage}{0.5\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-18.38.9-Ex_vs_Ey.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+		
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-18.38.9-E_vs_population.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+		
+	\end{minipage}
+	
+	
+	
+	\begin{minipage}{0.6\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-23.47.40-E_intensitys.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+		
+	\end{minipage}
+	
+	\begin{minipage}{0.5\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-23.47.42-Ex_vs_Ey.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+		
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-23.47.42-E_vs_population.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+		
+	\end{minipage}
+	
+	Llama la atención que para frecuencias muy bajas, los módulos de los campos oscilan parece oscilar 'tomándose turnos' de actividad, durante los cuales la polarización de haz es lineal, a diferencia de lo que puede ser una polarización circular en al cual el modulo de los campos complejos se mantiene constante.
+	
+	%	
+	%	Mientras que para valores mas bajos de la frecuencia, el sistema pasa por una bifurcación ????? a partir de la cual ambos campos muestran una dinamica .
+	
+	Mientras que para valores mas bajos de la frecuencia se observa que para algunas condiciones iniciales ninguno de los campos decae .
+	
+	\begin{minipage}{0.5\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-19.6.24-E_intensitys.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+		
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		
+		\centering
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_5_9-19.6.25-E_vs_population.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+		
+	\end{minipage}
+	
+	
+	
+%	\textcolor{red}{Comparar periodos de los transitorios.}
+	
+	
+	%	Esto es muy llamativo, ya que si bien las ecuaciones planteadas tiene la modulación solo en $E_y$, el sistema podría reescribirse de manera que la perturbación afecte a ambos campos de manera simétrica por lo que seria esperable una evolución simétrica del mismo.
+	%	
+	%	Una posible ruta para esta ruptura de simetría puede estar dada por la falta de simetría en las condiciones iniciales.
+	%	
+	%	Para testear esto se realizo un estudio partiendo de distintas condiciones iniciales, y una serie de integraciones planteando al sistema con una perturbación en ambos campos.
+
+
+%		\textcolor{red}{hacer para perturbaciones en $m$}
+	

@@ -1,0 +1,63 @@
+\section{Cosas para hacer}
+
+	\subsection{Polarización}
+					
+		\begin{itemize}
+			\color{red}	
+			\item Orbitas intestables
+			\item \st{mapa $\delta$}
+			\item ruido \textcolor{black}{Si pongo ruido en $wf$ puedo saltar entre atractores, esto se ve por los errores que tenia en los codigos de barrido.}
+			\item newton
+			\item jacobiano en odeint
+			\item \st{Freq de corte para decaimiento de $E_x$.}
+			\textcolor{black}{Parecería ser que para cualquier valor de las frecuencia se puede tener una dinámica sin $E_x$. Aunque no así para dinámica con ambos campos. No se sabe si es por falta de unas condiciones iniciales adecuadas o por falta de existencia de la dinámica.}
+			\item \st{graficos de eliminacion adiabatica}
+%			\item re(ex*pop) vs re(pol)  para ver mejor si se puede hacer adiab.
+			\item hacer lyapunov con promedio de las trayectorias como en el paper ...
+			\item \st{barrido en 2 para m=0.03}
+			\item barrido empezando siempre desde una condición inicial simétrica (para ver donde puedo levantar dinámicas con ambos campos.)
+			\item \st{ hacer $|E|$ vs $|P|$ en colores, para ver que pasa con la fase de la modulación.}
+			\item \st{Idea para los swype: Integrar siempre en cantidad entera de periodos, para que la fase relativa sea siempre la misma. y que sea lejos de cuando la trayectoria pase cerca de 0. ya que es basin de varias soluciones.}
+			\item \st{Idea para los swype: Utilizar como condición inicial el ultimo máximo de la integración anterior, para que sea mas probable que se inicie la nueva integración en el basin de la misma trayectoria.}
+			\item Fit pareto distribution?	
+			\item swype en $\Delta \phi_0$
+			\item \st{Transitorios al variar $m$}
+			\item aumentar periodos de extreme events	
+			\item animación de alguna bifurcación interesante.	
+			\item recuperar soluciones con las nuevas ecs adiabaticas.
+			\item donde rompo la simetría?		
+			\item probar delta phi con m=0
+		\end{itemize}
+
+	\subsection{Galerkin}
+		
+		\begin{itemize}
+			\color{red}	
+			\item \st{problema con la ortogonalidad de los polinomios! en n.}
+			\item \st{Cuadratura}
+			\item correr y paralelizar código python
+			\item mpi en fortran
+			\item Runge kutta de jameson-schmidt y turkel?
+			\item Definiciones de perdidas y ganancias. 
+			\item Formula recursiva de $\Gamma$
+			\item quiver si quiero ver la polarización.
+		\end{itemize}
+		
+	\subsection{Otros}
+		\begin{itemize}
+			\color{red}	
+			\item Choque de dos atractores de Rossler
+			\item Mirar que pasa con el critical slow down cerca cuando hay E.E. y cerca de E.E.
+			\item leer symetric chaos.
+			\item \st{curva de hilbert}
+		\end{itemize}
+				
+	\subsection{Preguntas Papers}
+		\begin{itemize}
+			\color{red}	
+			\item Practical Lyapunov exponents: -de donde sale el $\tau $ de $f^{t+\tau}$\\
+												-Renyi entropy\\
+												-$h-\gamma$ spectrum??
+			\item Characterization UPOS.: -usa Runge -kutta en un sistema que conserva la energia?
+			\item Las Definiciones que se usan en 'disaster in extreme waves'. 
+			\end{itemize}

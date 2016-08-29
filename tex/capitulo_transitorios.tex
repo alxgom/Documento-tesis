@@ -1,0 +1,133 @@
+\section{Transitorios}
+	\textcolor{red}{Esta sección la tengo que cambiar toda.}
+	
+	Para realizar los códigos para los barrido se estudio cual es el orden de duración (en periodos) de los transitorios cuando se varia el parámetro estudiado.
+	
+	En un principio debido a un error en los código se estaba actualizando mal la fase relativa entre la solución y la modulación. 
+	Sin embargo esto permitió obtener ejemplos de varias dinámicas que en otro caso hubiesen sido difícil de encontrar. 
+	\textcolor{red}{poner lo de los batidos.}
+	Esto se debe a que  al actualizar mal la fase relativa, el sistema se puede perturbar de manera que se aleja mas de la solución y puede decaer en otra solución estable. 
+	La contracara de este método es que los transitorios son bastante mas largos ya que se parte de un valor lejano de la nueva solución.
+	
+%	Para estas dinamicas, se  observa que para las dinámicas en la que ninguno de los dos campos decae, si se perturba la frecuencia cuando el sistema esta es el estado estacionario, el sistema se aleja mas de la solución que en los casos en los que uno de los campos decae.
+	
+	En la figura ????? se muestra al sistema evolucionando durante 150 periodos de modulación desde una condición inicial simétrica obtenida a partir de una simulación con una condición inicial simétrica y sin modulación. En el periodo 150 se perturba la frecuencia, pasando de $100$kHz a $100.02$Khz.
+	
+	\begin{center}
+		\includegraphics[width= 0.7\linewidth]{../Python/integ directa/Results/2016_6_13-1.12.34-E_intensitys.png}
+	\end{center}
+	
+	Mientras que en la figura ??? se muestra el mismo efecto, pero perturbando la frecuencia hacia frecuencias mas bajas. 
+	En este caso se paso de  pasando de $100$kHz a $99.98$Khz
+	
+	
+	\begin{center}
+		\includegraphics[width= 0.7\linewidth]{../Python/integ directa/Results/2016_6_13-1.19.29-E_intensitys.png}
+	\end{center}
+	
+%	Para comparar, en la figura ???? se muestra la misma perturbación para la dinámica con campo nulo en $E_x$
+%	
+%	
+%	\begin{center}
+%		\includegraphics[width= 0.7\linewidth]{../Python/integ directa/Results/2016_6_13-1.53.43-E_intensitys.png}
+%	\end{center}
+
+	En las figuras a continuación se muestra la evolución de varias trayectorias al variar la frecuencia en $0,02$kHz.
+	
+		\begin{minipage}{0.5\textwidth}
+			
+			\centering
+			\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_6_24-18.51.49-E_intensitys.png}
+			\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_6_24-18.56.23-E_intensitys.png}
+			
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+			
+			\centering
+			\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_6_24-19.2.56-E_intensitys.png}
+			\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/2016_6_24-19.14.12-E_intensitys.png}
+			
+		\end{minipage}		
+		\begin{center}
+			\begin{table}[h]
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$\Delta w_{mod}$ kHz  & Periodos del transitorio \Ts \Bs   \\ \hline
+					$0,1$		  &        		$100$					  \\ \hline
+					$0,05$		  &        		$80$					  \\ \hline		
+			  $0,01$        &        		$45$					  \\ \hline					
+					$0,005$       &        		$55$					  \\ \hline		
+					$0,001$       &        		$25$					  \\ \hline
+					$0,0005$      &        		$20$				  	  \\ \hline
+	   				$0,0001$      &        		$10$				     \\	\hline 						  
+					
+				\end{tabular}
+				\caption{Tabla Transitorios. Datos tomados a partir de una integración de 400 periodos con $m=0,028$, $w_{mod}=450$ kHz, $\delta=1$, $\Delta \phi_0=0$, $k=0,09$, $\mu=2,5 10^{-5}$, $\gamma_{\bot}=0,00025$, $D_0=7200$ . Luego se perturba la frecuencia en $\Delta w_{mod}$ y se integra otros 400 periodos. Finalmente se estima 'a ojo' cuantos periodos dura el transitorio con el fin de tener una cota de la duración del mismo.
+					En el ultimo caso, la perturbación apenas es perceptible.
+				}
+				\label{tab: trans one field}
+			\end{table}
+		\end{center}
+	
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{../Python/integ directa/Results/test transitorio dw/Un solo campo/2016_6_30-2.38.41-E_intensitys}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{../Python/integ directa/Results/test transitorio dw/Un solo campo/2016_6_30-2.41.31-E_intensitys}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{../Python/integ directa/Results/test transitorio dw/Un solo campo/2016_6_30-2.53.8-E_intensitys}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+		\end{minipage}
+		
+		
+			\begin{center}
+				\begin{table}[htp]
+					\begin{tabular}{|c|c|c|}
+						\hline
+						$\Delta w_{mod}$ kHz  & Periodos del transitorio \Ts \Bs   \\ \hline
+						$0,1$		  &        		$200$					  \\ \hline
+						$0,05$		  &        		$200$					  \\ \hline					  	
+	   				  $0,01$        &        		$200$					  \\ \hline
+						$0,005$       &        		$200$					  \\ \hline		
+						$0,001$       &        		$180$					  \\ \hline
+						$0,0005$      &        		$130$				  	  \\ \hline
+						$0,0001$      &        		$50$				     	\\ \hline 						  
+						
+					\end{tabular}
+					\caption{Tabla Transitorios. Datos tomados a partir de una integración de 350 periodos con $m=0,02$, $w_{mod}=110$ kHz , $\delta=1$, $\Delta \phi_0=0$, $k=0,09$, $\mu=2,5 10^{-5}$, $\gamma_{\bot}=0,00025$, $D_0=7200$ . Luego se perturba la frecuencia en $\Delta w_{mod}$ y se integra otros 400 periodos. Finalmente se estima 'a ojo' cuantos periodos dura el transitorio con el fin de tener una cota de la duración del mismo.
+						En el ultimo caso, la perturbación apenas es perceptible, a excepción de una pequeña tendencia del máximo a converger asintoticamente al valor estable.
+					}
+					\label{tab: trans two field}
+				\end{table}
+			\end{center}
+		
+			\begin{minipage}{0.33\textwidth}
+				\centering
+				\includegraphics[width= \linewidth]{../Python/integ directa/Results/test transitorio dw/dos campos/2016_6_30-3.18.5-E_intensitys.png}
+				%\caption{Set joke}
+				%	\label{fig:erise}
+			\end{minipage}
+			\begin{minipage}{0.33\textwidth}
+				\centering
+				\includegraphics[width= \linewidth]{../Python/integ directa/Results/test transitorio dw/dos campos/2016_6_30-3.33.6-E_intensitys}
+					%\caption{Set joke}
+				%	\label{fig:erise}
+			\end{minipage}
+			\begin{minipage}{0.33\textwidth}
+				\centering
+				\includegraphics[width= \linewidth]{../Python/integ directa/Results/test transitorio dw/dos campos/2016_6_30-4.0.35-E_intensitys}
+				%\caption{Set joke}
+				%	\label{fig:erise}
+			\end{minipage}\\
+				
+	
+		Cabe destacar que al realizar estos análisis no se estudio el efecto que puede tener la fase de la trayectoria respecto de la modulación al momento de realizar la perturbación, la cual podría tener alguna influencia en la duración del mismo.

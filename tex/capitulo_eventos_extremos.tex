@@ -1,0 +1,217 @@
+
+\chapter{Eventos extremos}
+	
+	Tomando como definición de evento extremo a un evento cuyo pico de intensidad supere por 4 veces la desviación estándar al promedio de los máximos de la dinámica del sistema para esos parámetros.
+	Es decir, se toma como evento extremo a cualquier evento $Max(|E|^2)$ tal que $Max|E|^2> \langle Max|E|^2 \rangle + 4.\Delta Max|E|^2$
+	
+	Basándose en el mapa de la figura \ref{mapa m 379} , se realizo un estudio sobre la estadística 	de los máximos de intensidad para $m=0.0202$ y $w=379$Khz , en el cual se observa la existencia de eventos extremos. 
+		
+	\begin{center}
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Extreme events/Results/2016_7_31-18.57.21-hist_E_intensitys.png}
+		\captionof{figure}{Histograma de los maximos de intensidad. Datos obtenidos a partir de $240\times10^3$ periodos}
+	\end{center}
+	\todo{agregar otro con tail sin rogue waves, y uno caotico sin tail}
+	\begin{center}
+		\includegraphics[width= 0.6\linewidth]{../Python/integ directa/Results/2016_5_29-15.33.23-color_phase_E_vs_pop.png}
+		\captionof{figure}{Trayectoria con evento extremo.}
+	\end{center}	
+	
+	\begin{center}
+		\includegraphics[width= .6\linewidth]{../Python/integ directa/Extreme events/Results/2016_7_31-18.55.29-Extreme_Event_correlation_avg.png}
+	\end{center}
+	\begin{center}
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Extreme events/Results/2016_7_5-4.45.56-color_comparison.png}
+	\end{center}
+	
+	\begin{center}
+		\includegraphics[width= 1\linewidth]{../Python/integ directa/Extreme events/Results/2016_7_31-18.57.24-hist_dist_time.png}
+		\captionof{figure}{Distribución de tiempo transcurrido entre eventos extremos. Obtenida a partir de 322 eventos.}
+	\end{center}
+
+	
+	Se estudio como cambia la cantidad de eventos extremos antes y después de la crisis.
+	Para esto se realizo un evoluciono el sistema siempre desde una misma condición inicial, dejando pasar 200 periodos y usando los siguientes 50000 periodos en el análisis.
+	
+	En la tabla \ref{tab: extreme events} se muestra la cantidad de eventos extremos obtenidos para varios valores de $m$.
+	
+	\begin{center}
+		\begin{table}[htp]
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$m$  		& 	       Extreme events \Ts \Bs         \\ \hline
+				$0,0200$	&        		$0$  					  \\ \hline
+				$0,0201$	&        		$33$					  \\ \hline
+				$0,02015$	&        		$38$					  \\ \hline
+				$0,020175$	&        		$44$					  \\ \hline
+				$0,0202$	&        		$70$					  \\ \hline
+				$0,0202125$	&        		$52$					  \\ \hline					  								  
+				$0,020225$	&        		$50$					  \\ \hline					  								  
+				$0,02025$	&        		$48$					  \\ \hline					 
+				$0,0203$    &        		$45$					  \\ \hline
+				$0,020325$  &        		$46$					  \\ \hline
+				$0,0204$    &        		$0$				     	  \\ \hline
+			\end{tabular}
+			\caption{Cantidad de eventos extremos para distintos valores de $m$ cerca de la crisis. En cada caso los valores se obtuvieron a partir de 50000 periodos de modulación, luego de dejar pasar un transitorio de 200 periodos. }
+			\label{tab: extreme events}
+		\end{table}
+	\end{center}
+	
+		\begin{center}
+			\begin{table}[htp]
+				\begin{tabular}{|c|c|c|c|c|}
+					\hline
+					$m$  		& 	       Extreme events \Ts \Bs  	& 	Average 	&    max-avg (max-threshold)         \\ \hline
+					$0,0200$	&        		  	& &				  \\ \hline
+					$0,0201$	&        			& &				  \\ \hline
+					$0,02015$	&        			& &				  \\ \hline
+					$0,020175$	&        		$209$  & &					  \\ \hline
+					$0,0202$	&        		$322$	& & 				  \\ \hline
+					$0,0202125$	&        		$284$				& $0.4974$		&	$1.9688$ ($0.0795$)	  \\ \hline					  								  
+					$0,020225$	&        		$226$				& $0.4990$		&	$1.9681$ ($0.0682 $) \\ \hline					  								  
+					$0,02025$	&        		$201$				& $0.5012$ 		&   $1.9675$ ($0.0598$)  \\ \hline					 
+					$0,0203$    &        		$293$			&  $0.5062 $ &	$1.9663$ ($0.02906$)	  \\ \hline
+					$0,020325$  &        						& &	  \\ \hline
+					$0,0204$    &        						   & &  	  \\ \hline
+				\end{tabular}
+				\caption{Cantidad de eventos extremos para distintos valores de $m$ cerca de la crisis. En cada caso los valores se obtuvieron a partir de 240000 periodos de modulación, luego de dejar pasar un transitorio de 200 periodos. }
+				\label{tab: more extreme events}
+			\end{table}
+		\end{center}
+	
+	\subsection{Coeficientes de Lyapunov}
+	
+	Se busco estudiar el coeficiente de lyapunov del sistema antes y después de la dinámica de eventos extremos, para estudiar si se observa algún cambio en la dimensionalidad del atractor.
+
+
+	\begin{center}
+			\includegraphics[width= 0.6\linewidth]{../Python/integ directa/lyapunov/Results/2016_5_25-4.43.11-populations}
+	\end{center}	
+
+	Para calcular el coeficiente de lyapunov (que es una medida de la dimensionalidad del atractor) se estudia la separacion para las trayectorias de dos condiciones iniciales cercanas (pocos epsilon de maquina de distancia) para una variable, en este caso la población del láser $|D-\hat{D}|$, ya que debe seguir relación $e^{\lambda t}$ para tiempos suficientemente cortos.
+	
+	 
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov/Results/2016_5_25-4.41.43-difference_p}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov/Results/2016_6_3-23.49.21-ln_difference_p}
+		\end{center}
+	\end{minipage}
+
+	Debido a los picos espurios de los datos cuando las órbitas son muy cercanas, para ajustar $\lambda$ se eligen los máximos de $ln(|D-\hat{D}|)$ y se ajusta por una recta en el rango en el que se supone que el comportamiento es lineal.
+	Repitiendo este proceso varias veces con el fin de tener estadística suficiente y de tener datos de todas las dinámicas del atractor, se realiza un promedio de la pendiente, pesado por los errores de los fiteos.	
+	
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov/Results/2016_6_6-7.19.18-ln_difference_p}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov/Results/2016_6_6-7.19.27-lyapunov_hist}
+		\end{center}
+	\end{minipage}
+	
+		\textcolor{red}{elegir bien las figuras, hacer los otros casos, calcular mejor los errores pesados. }
+		
+		
+	Para mejorar la aproximación y reducir el error, se utilizo otro procedimiento en el cual se realiza un promedio para la distancia entre las trayectorias para varios casos, de esta manera se eliminan las fluctuaciones como se muestra en la figura ??? en la cual el promedio se muestra en azul, en colores se muestran las corridas particulares, y en rojo se muestra los datos utilizados para realizar el ajuste lineal, el cual se muestra en negro.
+	
+66	Tomando $\bar{z}$ como el vector del estado de 9-dimensiones en el espacio de fase, y $\bar{z_0}$ como la condición inicial.
+
+		\begin{center}
+			\includegraphics[width=0.7\linewidth]{../Python/integ directa/lyapunov avg/Results/old/2016_6_16-20.38.48-ln_difference_pop}
+		\end{center}
+		
+		\textcolor{red}{Antes lo hacia con D. Ahora lo arregle.}
+		
+		\textcolor{red}{Estoy multiplicando los resultados por $10^4$, para que den es valores de dimensión. no se porque me da así. \underline{Preguntar}}
+%	Aclaración: El promedio se realiza sobre $ln(|D-\hat{D}|)$ , y no sobre $|D-\hat{D}|$ para luego aplicar el $\ln()$
+%	%\todo{pensar cual tiene mas sentido, probablemente influya solo en como decae el ruido al promediar.}
+%	
+%	\[ |D-\hat{D}|\approx e^{\lambda t} \Rightarrow \ln(|D-\hat{D}|)\approx \lambda t \\
+%	
+%	\langle \ln(|D-\hat{D}|) \rangle \approx \langle   \lambda  \rangle t 
+%	\]	
+	
+
+ 	Aclaración: El promedio se realiza sobre $\ln (\tfrac{|\Delta\bar{z}|}{|\Delta \bar{z_0}|})$ , y no sobre $|\Delta \bar{z}|$ para luego aplicar el $\ln()$
+	
+	\[ \frac{|\Delta \bar{z}|}{|\Delta \bar{z_0}|} \approx e^{\lambda t} \Rightarrow \ln(\frac{|\Delta \bar{z}|}{|\Delta \bar{z_0}|})\approx \lambda t \]
+	
+	\[ \langle \ln(\frac{|\Delta \bar{z}|}{|\Delta \bar{z_0}|}) \rangle \approx \langle   \lambda  \rangle t  \]	
+	
+	Donde el promedio $\langle - \rangle$ se hace respecto de las trayectorias.
+	
+	Por lo tanto el resultado seria el mismo que utilizando el otro método, pero con la diferencia que en el otro método utilizo los máximos para realizar el ajuste. 
+	
+	A continuación se muestra un resultado utilizando este método, y la evolución de los parámetros obtenidos en función de la cantidad de iteraciones utilizadas para realizar el promedio.
+	
+	\begin{center}
+		\includegraphics[width= 0.5\linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_11-6.1.42-ln_difference_z}
+	\end{center}
+		
+	\begin{minipage}{0.33\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_11-6.1.37-lambda}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.33\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_11-6.1.40-std_desv}
+		\end{center}
+	\end{minipage}	
+	\begin{minipage}{0.33\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_11-6.1.41-R2}
+		\end{center}
+	\end{minipage}
+	 
+	 
+	\begin{center}
+		\includegraphics[width= 0.5\linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_10-23.51.26-ln_difference_z}
+	\end{center}
+	
+	\begin{minipage}{0.33\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_10-20.13.12-lambda}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.33\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_10-20.13.14-std_desv}
+		\end{center}
+	\end{minipage}	
+	\begin{minipage}{0.33\textwidth}
+		\begin{center}
+			\includegraphics[width= \linewidth]{../Python/integ directa/lyapunov avg/Results/2016_8_10-20.13.17-R2}
+		\end{center}
+	\end{minipage} 
+	 
+	 Tiempo de predicción:
+	 
+	 \[T_{pred}=\frac{1}{\lambda}\]
+	 
+	 En periodos seria $Tp_{pred}=\frac{w_{mod}}{2\pi\lambda}$
+	 
+	 \textcolor{red}{Podría hacer un código híbrido. haciendo promedios pocas iteraciones, fiteando y realizando el promedio de los fiteos. También podría realizar un promedio con varias trayectorias para el mismo tiempo. y después realizar el promedio de eso. }
+	
+%	
+%	\begin{center}
+%		\includegraphics[width= 0.6\linewidth]{../Python/integ directa/Results/2016_5_29-15.33.23-color_phase_E_vs_pop.png}
+%	\end{center}	
+%	
+
+
+
+%\subsection{Ambigüedad de la definición}
+%
+%Entre otras cosas se puede observar que esta difinicion es poco deseable como caracterización de una dinámica de un sistema ya que depende fuertemente de la definición de la variable que se estudia. 
+%Tanto es así que,  bajo esta definición y con los mismos parámetros, estudiando la población o el modulo del campo eléctrico ($|E|$) no se obtendrían eventos extremos.
+%
+%
+%\includegraphics[width= 1\linewidth]{integ directa/Extreme events/Results/2016_5_19-2.44.50-Time_series.png}
+%%	

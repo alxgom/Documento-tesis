@@ -1,0 +1,128 @@
+\section{Polinomios de Laguerre}
+			
+		La base normalmente utilizada en estos casos son los polinomios asociados de Laguerre $L^m_n(x): \left[ 0, \infty \right) \longrightarrow \mathbb{R}$
+		
+		Los polinomios Asociados de Laguerre se puede definir de varias maneras.
+	
+%		Generalized Laguerre polynomial: $L^m_n(x)=\sum_{i=0}^n (-1)^i {n+m \choose n-i}\dfrac{x^i}{i!}$
+			
+		En la practica se puede usar una definición directa:
+		\[  L_n^m(x)=\sum_{j=0}^{n}(-1)^j \binom{p+m}{p-j}\frac{x^j}{j!} \]
+		
+		o una definición recurrente:
+		\begin{align*}
+			L^m_0(x) &= 1 \\
+			L^m_1(x) &= m+1-x\\
+			L^m_{n+1}(x) &= \frac{(2n+1+m-x)L_n^m-(n+m)L_{n-1}^m}{n+1}
+		\end{align*}
+		y cumplen con la propiedad de que $L_n^0(x)=L_n(x)$.
+		
+		Que cumplen con la siguiente norma de ortogonalidad:
+		
+		\[  \left \langle L_n^m | L_{n'}^{m} \right \rangle = \int_0^\infty e^{-x} x^{m} L_n^m(x) L_{n'}^{m}(x) dx = \frac{\Gamma(n+m+1)}{n!} \delta_{nn'}=\Gamma(m+1){n+m \choose n} \delta_{nn'} 
+		\]
+		\label{PI}
+		
+		Definiendo: 
+		$\hat{R}_n^m(x)=(\dfrac{e^{-x} x^{m}}{\Gamma(m+1){n+m \choose n}})^{1/2}  L_n^m(x)=e^{-x/2} x^{m/2}(\dfrac{n!}{(n+m)!})^{1/2}  L_n^m(x)$
+		
+		Donde se uso que $m$ es entero.
+		
+		Ahora $\left \langle \hat{R}_n^m(x) | \hat{R}_{n'}^{m}(x) \right \rangle = \int_0^\infty R_n^m(x) R_{n'}^{m}(x) dx = \delta_{nn'} $
+		
+		OBS: Para que valga la ortogonalidad, ambos polinomios deben tener el mismo $m$.
+		
+		Si uso variables en coordenadas polares y redefiniendo $R$ , ahora el PI se vuelve
+		
+		\[R_n^m(\rho)=2e^{-\rho^2} (2\rho^2)^{m/2}(\dfrac{n!}{(n+m)!})^{1/2}  L_n^m(2\rho^2) \]
+		
+		Ahora
+		\[\left \langle \hat{R}_n^m(\rho) | \hat{R}_{n'}^{m}(\rho) \right \rangle = \int_0^\infty R_n^m(\rho) R_{n'}^{m}(\rho) \rho d\rho = \delta_{nn'}
+		\] 
+		
+		Ya que usando el cambio de variables $x=2\rho^2$, recupero el resultado anterior.
+		
+		
+		
+		
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Ln_ns.png}
+				\end{center}
+			\end{minipage}
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Ln_ms-1.png}
+				\end{center}
+			\end{minipage}	
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Ln_ms-2.png}
+				\end{center}
+			\end{minipage}
+			
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Rn_ns.png}
+				\end{center}
+			\end{minipage}
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Rn_ms-1.png}
+				\end{center}
+			\end{minipage}	
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Rn_ms-2.png}
+				\end{center}
+			\end{minipage}
+
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/An_000-3d.png}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/An_000-d2.png}
+				\end{center}
+			\end{minipage}
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/An_100-3d.png}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/An_100-d2.png}
+				\end{center}
+			\end{minipage}	
+			\begin{minipage}{0.33\textwidth}
+				\begin{center}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/An_110-3d.png}
+					\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/An_110-d2.png}
+				\end{center}
+			\end{minipage}
+			
+			Obs:
+			Si se quieren realizar los productos internos entre $\langle A_{p'm'i'} | A_{pmi}\rangle$ con $p=[0,N]$ y $p'=[0,M]$, la cantidad de integraciones que hay que realizar es:
+			
+			Ya que $p=[0,N]$ , la cantidad de funciones es $\sum_{k=0}^{N}2(k+1)-(N+1)$. Donde el termino $(k+1)$ se debe a que los números de los polinomios empiezan desde 0 y no desde 1, el $2$ y el  $-(N+1)$ se debe a que por cada $m$ hay 2 valores de $i$ menos para $m=0$ en el que  $i$ toma un solo valor.
+			
+			Por lo tanto 
+			\[   \sum_{p=0}^{N}\sum_{p'=0}^{M} \# \langle A_{p'm'i'} | A_{pmi}\rangle= (\sum_{k=0}^{N}2(k+1)-(N+1))(\sum_{j=0}^{M}2(j+1)-(M+1))=
+			(\sum_{k=1}^{N+1}2k-(N+1))(\sum_{j=1}^{M+1}2j-(M+1))
+			\]
+			
+			Usando que si llamo $R=N+1$ vale que $\sum_{k=1}^{R}k=\frac{R(R+1)}{2}$ (una suma de Gauss) se puede reescribir como :
+			
+			\[  \sum_{k=1}^{N+1}2k-(N+1)=(N+1)(N+2)-(N+1)=(N+1)^2
+			\]
+			
+			\[   \sum_{p=0}^{N}\sum_{p'=0}^{M} \# \langle A_{p'm'i'} | A_{pmi}\rangle= (N+1)^2(M+1)^2 
+			\]
+			
+				Con el mismo razonamiento para $\Gamma(\sigma, \sigma', \sigma'' ) $, la cantidad de integrales a realizar es 
+				\[\# \Gamma=(\sum_{k=1}^{N+1}2k-(N+1))(\sum_{j=1}^{N+1}2j-(N+1))(\sum_{l=1}^{N+1}2l-(N+1))=(N+1)^6\]
+				
+				Si $N \gg 1$. $\#\Gamma \approx N^6$
+				
+				Sin embargo, dada la simetría de permutacion entre $pmi$, $p'm'i''$ y $p''m''i''$, solo es necesario calcular un sexto de las integrales.
+			\textcolor{red}{Lo chequee con el codigo de fortran.}
+			
+			\textcolor{red}{$\int L_p^m L_q^n L_r^s \int e^{(n+s-m)\phi}$}
+			
+			Obs: Si $m=[0,M]$ para todo $N$ entonces
+	

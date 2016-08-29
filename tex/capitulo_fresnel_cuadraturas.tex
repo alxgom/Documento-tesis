@@ -1,0 +1,252 @@
+\section{Cuadraturas}
+	\subsection{Cuadraturas de Gauss-Laguerre}
+	
+	Cuadratura de Gauss-Laguerre:
+	
+	Utiliza las $n$ raíces ($x_i$) de los Polinomios $L_n(x)$ , para aproximar integrales del tipo
+	\[ \int_{0}^{\infty}f(x)e^{-x}dx\approx \sum_{i=1}^n w_n(x_i) f(x_i)   \]
+	
+	con 
+	\[w_n(x_i)=\frac{x_i}{(n+1)^2[L_{n+1}(x_i)]^2}\]
+	
+	Cuadratura de Gauss-Laguerre asociada:
+	
+	Utiliza las $n$ raíces ($x_i$) de los Polinomios $L_n^{\alpha}(x)$ , $\alpha > -1$, para aproximar integrales del tipo
+	\[ \int_{0}^{\infty}f(x)x^{\alpha}e^{-x}dx\approx \sum_{i=1}^n w^{\alpha}_n(x_i) f(x_i)    \]
+	
+	con 
+	\[w^{\alpha}_n(x_i)=\frac{x_i \Gamma(n+\alpha +1)}{n!(n+1)^2[L^{\alpha}_{n+1}(x_i)]^2}\]
+	
+	
+	\subsection{Implementaciones}
+		
+		Se realiza una comparacion de los métodos de convergencia para dos implementaciones de la cuadratura de Gauss-Laguerre.
+		\begin{lstlisting}
+		import scipy.special as sc
+		
+		def Bon_rl_genlaguerre(p,pp,m,mm,deg,alpha):
+			xl,yl=sc.la_roots(deg,alpha)
+			bon=sum(Rl(p,m,xl)*Rl(pp,mm,xl)*yl*np.exp(xl))
+			return bon
+			
+		def Bon_rl_laguerre(p,pp,m,mm,deg):
+			xl,yl=sc.l_roots(deg)
+			bon=sum(Rl(p,m,xl)*Rl(pp,mm,xl)*yl*xl*np.exp(xl))
+			return bon    
+			
+		\end{lstlisting}
+		
+		
+		\begin{figure}[h]
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/comp_quad1.png}
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/comp_quad2.png}
+			\caption{Comparación de convergencia de  Cuadraturas. Se realiza una integracion del Pi entre $R_5^3$ y $R_4^3$, utilizando una cuadratura de Gauss-Laguerre, una cuadratura de Gauss-Laguerre asociado con $\alpha =1$, y el metodo $scipy.quad$ (no iterativo). El Resultado teórico es $0$. }
+		\end{figure}
+		
+		Pero si se tiene en cuenta que la hacer el producto interno la integral a resolver se puede reescribir haciendo un cambio de variables $x=2\rho^2$:
+		
+		\begin{align*}
+			 \int_{0}^{\infty}R^{m}_{n}(\rho)R^{m'}_{n'}(\rho)\rho d\rho &=
+			 \int_{0}^{\infty} 4\frac{n!}{(n+m)!}\frac{n'!}{(n'+m')!}L^{m}_{n}(x)L^{m'}_{n'}(x)\tfrac{1}{4}x^{(m+m')\tfrac{1}{2}}e^{-x}dx \\
+			 & \approx \sum_{i=1}^N w_N^{(m+m')\tfrac{1}{2}}  \frac{n!}{(n+m)!}\frac{n'!}{(n'+m')!}L^{m}_{n}(x_i)L^{m'}_{n'}(x_i) 
+		\end{align*}
+			
+		ahora puedo usar la cuadratura con los polinomios asociados de Laguerre con $\alpha=\tfrac{1}{2}(m+m')$.
+		De esta manera los $x_i$ en los que evaluó a los $R$ también son sus raíces.  
+		
+		\begin{lstlisting}
+			def Rl_bon(p,m,x):
+			if m==0:
+				m=float(m)
+				Rl=2*sc.assoc_laguerre(x,p,k=m)
+			elif m>0:
+				m=float(m)
+				Rl=2*np.sqrt(np.math.factorial(p)*(1./np.math.factorial(p+m)))*sc.assoc_laguerre(x,p,k=m) 
+			return Rl
+			
+			def Bon_rl_genlaguerremod(p,pp,m,mm,deg):
+				alpha=(m+mm)*.5    
+				xl,yl=sc.la_roots(deg,alpha)    
+				bon=sum(Rl_bon(p,m,xl)*Rl_bon(pp,mm,xl)*yl*.25)
+				return bon
+		\end{lstlisting}
+
+		\begin{figure}[h]
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/comp_quad3.png}
+			\caption{Comparación de convergencia de  Cuadraturas. Se realiza una integracion del Pi entre $R_5^3$ y $R_4^3$, utilizando una cuadratura de Gauss-Laguerre, una cuadratura de Gauss-Laguerre asociado con $\alpha =\tfrac{1}{2}(m+m')$. El Resultado teórico es $0$. }
+		\end{figure}
+		
+		Se puede ver que con este método la convergencia es mucho mas rápida, de hecho ya es satisfactoria para $n=6$.
+		
+			\begin{center}
+				\begin{table}[h]
+					\begin{tabular}{|c|c|c|}
+						\hline
+						orden  		& 	       cuadratura  \Ts \Bs         \\ \hline
+						1	&        		$-0.048187088154946753$  					  \\ \hline
+						2	&        		$0.15058465048420852$					  \\ \hline
+						3	&        		$0.40657855630736328$					  \\ \hline
+						4	&        		$-6.9891926590402884e-17$					  \\ \hline
+						5	&        		$1.9090683924971627e-16$					  \\ \hline
+						6	&        		$3.9412917374193057e-15$					  \\ \hline	
+						7	&        		$3.3306690738754696e-16$		             \\ \hline 					  								  				  								  
+					\end{tabular}
+					\caption{Valores para $\langle R_5^3 R_4^3 \rangle$ usando la cuadratura modificada de Gauss-Laguerre con los polinomios asociados con $\alpha =\tfrac{1}{2}(m+m')$ para distintos ordenes. Usando Scypi.quad se obtiene $-1.4220309711738635e-16$. }
+					\label{tab: cuad gen-lag-mod}
+				\end{table}
+			\end{center}
+		
+		Se verifico realizando el producto interno entre $R$ y $R'$ para todos las funciones entre $n=[0,4]$ y $m=[0,4]$ utilizando este método con un orden de $p+p'+1$ y se obtuvieron los mismos resultados (con la misma cantidad de decimales) que usando la funcion scipy.quad .
+		
+		\begin{figure}[h]
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/comp_quad4.png}
+			\caption{Comparación de convergencia de  Cuadraturas. Se realiza una integracion del Pi entre $R_{40}^3$ y $R_{40}^3$, utilizando una cuadratura de Gauss-Laguerre, una cuadratura de Gauss-Laguerre asociado con $\alpha =\tfrac{1}{2}(m+m')$. El Resultado teórico es $1$. }
+		\end{figure}
+		
+		Se puede ver que con este método la convergencia es mucho mas rápida, de hecho ya es satisfactoria para $n=41$.
+		
+		De la misma forma se puede mdificar la cuadratura usual de Gauss-Laguerre
+		
+		
+		\begin{figure}[h]
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/comp_quad5.png}
+			\caption{Comparación de convergencia de  Cuadraturas. Se realiza una integracion del Pi entre $R_{40}^3$ y $R_{40}^3$, utilizando una cuadratura de Gauss-Laguerre, una cuadratura de Gauss-Laguerre asociado con $\alpha =\tfrac{1}{2}(m+m')$. El Resultado teórico es $1$. }
+		\end{figure}
+	
+		\begin{figure}[h]
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/comp_quad6.png}
+			\caption{Comparación de convergencia de  Cuadraturas. Se realiza una integracion del Pi entre $R_{30}^{25}$ y $R_{30}^{25}$, utilizando una cuadratura de Gauss-Laguerre, una cuadratura de Gauss-Laguerre asociado con $\alpha =\tfrac{1}{2}(m+m')$. El Resultado teórico es $1$.
+			cv. asociados=31, cv. comun=43 }
+		\end{figure}
+		
+		Para integrales con valores de $m$ mas elevados, la cuadratura con los polinomios asociados muestra una convergencia mas rapida. 
+		
+	\subsection{Cuadratura de Gauss-Legendre}
+		
+		Utiliza las $n$ raíces ($x_i$) de los Polinomios de Legendre $P_n(x)$ , para aproximar integrales del tipo
+		\[ \int_{-1}^{1}f(x)dx\approx \sum_{i=1}^n w_n(x_i) f(x_i)    \]
+		
+		con 
+		\[w_n(x_i)=\frac{2}{(1-x_i^2)[P_n'(x_i)]^2}\]
+		
+		Para trasladar el intervalo de integración a $[0,2\pi]$
+		\[ \int_{0}^{2\pi}f(x)dx\approx \sum_{i=1}^n w_n(x_i) f(\hat{x}_i) \pi    \]
+		\[ \hat{x}_i=(x_i+1)\pi \] 
+		
+	\subsection{Cuadraturas en 2d}
+		
+		Para realizar las integrales dobles, vamos a utilizar una cuadratura de Gauss-Laguerre en la dirección $\rho$ y una cuadratura de Gauss-Legendre en $\varphi$, de manera tal que 
+		
+		\[\int_{0}^{2\pi}\int_{0}^{\infty}f(\rho,\varphi)e^{-\rho}\rho d\rho d\varphi \approx \sum_{i=1}^n \sum_{i'=1}^{n'} w_n \hat{w}_{n'} f(\rho_i,\varphi_{i'})\rho_i \pi 
+		\]
+		
+		con $w_n$ los pesos de la cuadratura de G-Laguerre a orden $n$  y $\hat{w}_{n'}$ los pesos de la cuadratura de G-Legendre a orden $n'$.
+		
+	\subsection{Integral de $\Gamma$}
+		
+		Para chequear los resultados obtenidos puedo comparar con una funcion facil de integrar:
+		
+		\begin{align*}
+			\Gamma_{001001001} &= \int_{0}^{2\pi}\int_{0}^{\infty}A_{001}A_{001}A_{001}\rho d\rho d\varphi \\
+			&=2\pi (2\pi)^{-3/2} \int_{0}^{\infty}8(e^{-2\rho^2})^{3/2}\rho d\rho\\
+			&=2(2\pi)^{-1/2} \int_{0}^{\infty}(e^{-1,5 x}) dx\\
+			&=(2\pi)^{-1/2}2 \tfrac{2}{3}=\frac{4}{3}(2\pi)^{-1/2} = 0.531923 
+		\end{align*}
+		
+				
+		\begin{align*}
+			\Gamma &= \int_{0}^{\infty}\int_{0}^{2\pi} A^{m}_{n}(\rho)A^{m'}_{n'}A^{m''}_{n''}(\rho)(\rho)\rho d\rho d\varphi \\
+			&= \int_{0}^{\infty}\int_{0}^{2\pi} 8\frac{n!}{(n+m)!}\frac{n'!}{(n'+m')!}\frac{n''!}{(n''+m'')!}L^{m}_{n}(x)L^{m'}_{n'}(x)L^{m''}_{n''}(x)\tfrac{1}{4}x^{(m+m'+m'')/2}e^{-\tfrac{3}{2}x}B^{i}_{m}(\varphi)B^{i'}_{m'}(\varphi)B^{i''}_{m''}(\varphi) dx d\varphi \\
+			& \approx \sum_{j=1,k=1}^{N,M}\hat{w}_M w_N^{(m+m'+m'')\tfrac{1}{2}}  2\frac{n'!}{(n'+m')!}\frac{n''!}{(n''+m'')!}L^{m}_{n}(x_j)L^{m'}_{n'}(x_j)L^{m''}_{n''}(x_j)B^{i}_{m}(\varphi_k)B^{i'}_{m'}(\varphi_k)B^{i''}_{m''}(\varphi_k)\pi e^{-x_j/2}
+		\end{align*}
+		
+	\subsection{Cuadratura para las proyecciones}
+	
+		Sea $f(\rho,\varphi)$, siguiendo el mismo procedimiento que con la cuadratura de los acoples no lineales ($\Gamma$) pero observando que ahora $\alpha=m/2$.
+		
+		\begin{align*}
+			\langle f,A_{pmi} \rangle &= \int_{0}^{\infty}\int_{0}^{2\pi} f(\rho,\varphi) A^{m}_{n}(\rho)\rho d\rho d\varphi\\
+			&= \int_{0}^{\infty}\int_{0}^{2\pi} 2 (\frac{n!}{(n+m)!})^{1/2} f(\sqrt{x/2},\varphi) L^{m}_{n}(x)\tfrac{1}{4}x^{m/2}e^{-x/2}B^{i}_{m}(\varphi) dx d\varphi\\
+			&\approx \sum_{j=1,k=1}^{N,M}\hat{w}_M w_N^{m/2}  \frac{1}{2}(\frac{n!}{(n+m)!})^{1/2} f(\sqrt{x_j/2},\varphi_k) L^{m}_{n}(x_j)B^{i}_{m}(\varphi_k)\pi e^{x_j/2}
+		\end{align*}	
+		
+		Dado que en este caso las funciones que se integran no forman parte de la familia de funciones usadas para la cuadratura, se espera un grado de convergencia mas lento.
+		Por esta razón se realizo un estudio de convergencia para diferentes tanto en la parte radial como en la angular.
+		
+		
+		\begin{figure}[h]
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/cv_2d_proy_pump (n= 1).png}
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/cv_proy_pump (n= 1).png}
+			\caption{ Izquierda: Mapa de resultados obtenidos al variar el orden de los parametros de integracion. 
+				Derecha: Resultados obtenidos al aumentar el orden de integración radial para un orden fijo en la parte angular }
+		\end{figure}
+		
+		
+		\begin{figure}[h]
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/cv_2d_proy_pump (n= 25).png}
+			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/cv_proy_pump (n= 25).png}
+			\caption{Izquierda: Mapa de resultados obtenidos al variar el orden de los parametros de integración. 
+				Derecha: Resultados obtenidos al aumentar el orden de integración radial para un orden fijo en la parte angular }
+		\end{figure}
+		
+		Las funciones utilizadas no tiene una dependencia angular, los que explicaría porque las variaciones al cambiar el orden son despreciables.	
+	
+	
+		
+	\subsection{Aproximación del bombeo}
+		
+		Si el bombeo es definido como:
+		\[\chi(\rho)=5-\tfrac{1}{2}\tanh(5(\rho-\rho_0)) \]
+		con $\rho_0=1$
+		
+		\textcolor{red}{cambiar los $\chi$ por $f$?? u otra cosa.}
+		
+		Dada la simetría angular, la proyección del bombeo en la base $A_{nmi}$ unicamente es no nula cuando $m=0$.
+		Por lo tanto 
+		\[\chi(\rho)=\sum_{nmi}\langle  \chi | A_{nmi}\rangle A_{nmi}=\sum_{n=0}^{\infty} \langle  \chi | A_{n01}\rangle A_{n01}=\chi_n(\rho)\]
+		\textcolor{red}{escribir esto para cualquier funcion con simetria en $\rho$}
+		A continuación se muestra el perfil del bombeo (en azul) y la suma de las proyecciones hasta orden $n$ (en rojo).
+		
+		\begin{minipage}{0.33\textwidth}
+			\begin{center}
+				\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/Pump_aprox (n= 1).png}
+				\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/Pump_aprox (n= 6).png}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\begin{center}
+				\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/Pump_aprox (n= 35).png}
+				\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/Pump_aprox (n= 35)-1.png}
+			\end{center}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\begin{center}
+				\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/Pump_aprox (n= 20).png}
+				\includegraphics[width= \linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/Pump_aprox (n= 40).png}
+			\end{center}
+		\end{minipage}
+		
+		%		\begin{center}
+		%			\includegraphics[width= 0.6\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/gain-aprox.png}
+		%		\end{center}
+		
+		Lo que indica para nuestro problema debemos utilizar $n>40$ para obtener resultados coherentes.	
+		
+		Comparación entre las curvas propuestas para el bombeo y para las perdidas.
+		
+		%%		\begin{center}
+		%%			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/Fortran/2d_maxwellblock_gallerkin/Fortran/gain-loss.png}
+		%%		\end{center}
+%		
+%		\begin{figure}[h]
+%			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/cv_2d_proy_pump (n= 1).png}
+%			\includegraphics[width= 0.5\linewidth]{../../2d maxw galerkin/2d_maxwellblock_gallerkin/Python/Imagenes/cv_proy_pump (n= 1).png}
+%			\caption{ }
+%		\end{figure}
+%		
+%	
+		
+%		\begin{figure}[h]
+%			\includegraphics[width= 0.5\linewidth]{../Python/Imagenes especiales para la tesis/chequeo_1khz}
+%			\caption{Chequeo del reescaleo. $\cos(wt)$ con $w=6,28$kHz, o $\nu = 1$kHz. $\hat{w}=0,00000628$}
+%		\end{figure}

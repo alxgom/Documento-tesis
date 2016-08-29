@@ -1,0 +1,80 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {section}{\numberline {0.1}Cosas para hacer}{1}{section.0.1}
+\contentsline {subsection}{\numberline {0.1.1}Polarización}{1}{subsection.0.1.1}
+\contentsline {subsection}{\numberline {0.1.2}Galerkin}{2}{subsection.0.1.2}
+\contentsline {subsection}{\numberline {0.1.3}Otros}{2}{subsection.0.1.3}
+\contentsline {subsection}{\numberline {0.1.4}Preguntas Papers}{2}{subsection.0.1.4}
+\contentsline {chapter}{\numberline {1}Modelo teorico}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}El sistema:}{5}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Ecuaciones dinámicas del LASER}{5}{subsection.1.1.1}
+\contentsline {subsubsection}{El Hamiltoniano del atomo}{5}{section*.4}
+\contentsline {subsubsection}{El Hamiltoniano del campo electromagnético}{7}{section*.6}
+\contentsline {subsubsection}{El Hamiltoniano de interacción}{7}{section*.7}
+\contentsline {subsubsection}{El Hamiltoniano total y la evolución temporal}{9}{section*.8}
+\contentsline {subsection}{\numberline {1.1.2}Metodo semiclasico: Relaciones de Maxwell-bloch}{11}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Normalizaciones y aproximaciones}{12}{subsection.1.1.3}
+\contentsline {subsubsection}{Campo unidireccional}{12}{section*.10}
+\contentsline {subsubsection}{Onda plana}{12}{section*.11}
+\contentsline {subsubsection}{Variacion lenta de la amplitud}{12}{section*.12}
+\contentsline {subsubsection}{Modulacon de la fase: Modulador electro-optico.}{13}{section*.13}
+\contentsline {subsection}{\numberline {1.1.4}Condiciones de borde}{14}{subsection.1.1.4}
+\contentsline {section}{\numberline {1.2}Elección de parámetros del sistema}{16}{section.1.2}
+\contentsline {section}{\numberline {1.3}Ruptura de simetría y decaimiento de $|E_x|$}{17}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Intensidad y fase }{17}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Ruptura de simetría}{19}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Casos con modulación dependiente del tiempo}{20}{subsection.1.3.3}
+\contentsline {section}{\numberline {1.4}Mapas}{22}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Barridos en $m$}{22}{subsection.1.4.1}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $m$, con $\Delta \phi _0 = 0 $ y $w=500$Khz}{22}{section*.18}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $m$, con $\Delta \phi _0 = 0 $ y $w=473.34$Khz}{23}{section*.19}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $m$, con $\Delta \phi _0 = 0 $ y $w=420$Khz}{24}{section*.20}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $m$, con $\Delta \phi _0 = 0 $ y $w=400$Khz}{25}{section*.21}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $m$, con $\Delta \phi _0 =0 $ y $w=379$Khz}{25}{section*.22}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $m$, con $\Delta \phi _0 = 0 $ y $w=320$Khz}{27}{section*.23}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $m$, con $\Delta \phi _0 = 0 $ y $w=120$Khz}{27}{section*.24}
+\contentsline {subsection}{\numberline {1.4.2}Barrido en $w$}{28}{subsection.1.4.2}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $w$, $m=0.015$ y $\Delta \phi _0=0$}{28}{section*.25}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $w$, $m=0.0187$ y $\Delta \phi _0=0$}{29}{section*.27}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $w$, con $\Delta \phi _0 =0 $ y $m=0.02$}{30}{section*.31}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $w$, con $\Delta \phi _0 =0 $ , $m=0.02$ y $\Delta \phi _0=10^{-5}$}{33}{section*.32}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $w$, $m=0.0202$ y $\Delta \phi _0=0$}{34}{section*.33}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $w$, $m=0.028$ y $\Delta \phi _0=10^{-5}$}{37}{section*.43}
+\contentsline {subsection}{\numberline {1.4.3}Barridos en $\delta $}{40}{subsection.1.4.3}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $\delta $, $m=0.028$ y $w=379$kHz}{40}{section*.44}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $\delta $, $m=0.02/$ y $w=100$kHz}{42}{section*.46}
+\contentsline {subsubsection}{Mapa de un barrido en el parámetro $\delta $, $m=0.02$ y $w=379$kHz}{42}{section*.47}
+\contentsline {section}{\numberline {1.5}Transitorios}{43}{section.1.5}
+\contentsline {section}{\numberline {1.6}casos particulares}{45}{section.1.6}
+\contentsline {subsection}{\numberline {1.6.1}Visualización de casos particulares }{45}{subsection.1.6.1}
+\contentsline {subsection}{\numberline {1.6.2}Fase física}{48}{subsection.1.6.2}
+\contentsline {section}{\numberline {1.7}Multiestabilidad}{49}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}$m=0.02$, $w=237.3$Khz}{49}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}$m=0.02$, $w=100$Khz}{50}{subsection.1.7.2}
+\contentsline {section}{\numberline {1.8}Intermitencia}{50}{section.1.8}
+\contentsline {chapter}{\numberline {2}Eventos extremos}{53}{chapter.2}
+\contentsline {subsection}{\numberline {2.0.1}Coeficientes de Lyapunov}{55}{subsection.2.0.1}
+\contentsline {chapter}{\numberline {3}Eliminación adiabatica}{59}{chapter.3}
+\contentsline {section}{\numberline {3.1}Posible eliminación adiabatica}{59}{section.3.1}
+\contentsline {chapter}{\numberline {4}Extra}{63}{chapter.4}
+\contentsline {section}{\numberline {4.1}Comparación de la eliminacion adiabatica con modulación de amplitud}{63}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Eliminacion adiabatica}{63}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Detalles del código}{64}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Código utilizado para los barridos.}{64}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}El problema transversal}{69}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Descomposición de Galerkin}{70}{subsection.4.3.1}
+\contentsline {section}{\numberline {4.4}Code deduction:}{71}{section.4.4}
+\contentsline {section}{\numberline {4.5}Polinomios de Laguerre}{73}{section.4.5}
+\contentsline {section}{\numberline {4.6}Cuadraturas}{75}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Cuadraturas de Gauss-Laguerre}{75}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Implementaciones}{75}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Cuadratura de Gauss-Legendre}{77}{subsection.4.6.3}
+\contentsline {subsection}{\numberline {4.6.4}Cuadraturas en 2d}{78}{subsection.4.6.4}
+\contentsline {subsection}{\numberline {4.6.5}Integral de $\Gamma $}{79}{subsection.4.6.5}
+\contentsline {subsection}{\numberline {4.6.6}Cuadratura para las proyecciones}{79}{subsection.4.6.6}
+\contentsline {subsection}{\numberline {4.6.7}Aproximación del bombeo}{79}{subsection.4.6.7}
+\contentsline {section}{\numberline {4.7}Reproducción de papers}{81}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Symmetry breaking, dinamical pulsations, turbulence}{81}{subsection.4.7.1}
+\contentsline {section}{\numberline {4.8}El problema que planteo}{82}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}Ecuaciones:}{82}{subsection.4.8.1}
+\contentsline {section}{\numberline {4.9}Detalles del código 2D}{82}{section.4.9}

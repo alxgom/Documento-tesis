@@ -1,0 +1,54 @@
+\subsection{Metodo semiclasico: Relaciones de Maxwell-bloch}		
+
+		La principal ventaja del metodo semiclasico es que , a diferencia de la deduccion cuantica, es facil proponer la dependencia espacial de las ecuaciones.
+		
+		Sin embargo, una deduccion completa a partir de una teoria clasica fallaria, entre otras cosas, en describir fenomenos como la emision espontanea, por lo tanto no se podrian deducir dinamicas como la de la lampara comun (sin lasear).
+		
+		Estos efectos se pueden introducir luego de manera AD HOC. 
+		
+		\textcolor{red}{chequear lo que puse aca.}
+		
+		En nuestro caso, con el fin de dar mas claridad a algunas de las aproximaciones hechas que son consideradas de importancia, vamos a deducir la dinamica del campo electrico a partir de las ecuaciones de maxwell clasicas y luego agregarles las ecuaciones de Bloch deducidas a partir de las interacciones cuanticas. 
+		
+		Ecuaciones de Maxwell:
+		
+		\begin{equation}
+		\begin{cases}
+		\bar{\nabla} \times \bar{H} = \bar{J} + \partial_{t} \bar{D}  \\
+		\bar{\nabla} \times \bar{E} = -\partial_{t} \bar{B} \\
+		\bar{\nabla} \cdot \bar{B}   = 0 \\
+		\bar{\nabla} \cdot \bar{D}   = \rho \\
+		\end{cases}
+		\label{eq: Maxwell}
+		\end{equation}  %alinear los iguales.
+		
+		Suponiendo que el material es lineal, $\bar{D}=\epsilon_0 \bar{E}+\bar{P}$ y $\bar{B}=\mu \bar{H} + \bar{M}$
+		
+		donde $H$, $M$, ....
+		
+		y utilizando que $\bar{\nabla} \times (\bar{\nabla} \times \bar{E} )= \bar{\nabla}(\nabla \cdot \bar{E}) - \nabla^2 \bar{E} $
+		en $\bar{\nabla} \times (\bar{\nabla} \times \bar{E}) = -\bar{\nabla} \times (\partial_{t} \bar{B})$ y reescribiendo el termino de $\nabla \cdot \bar{E}$ se obtiene 
+		
+		\[ -\nabla^2 \bar{E} + \nabla (\nabla \cdot (\frac{\bar{D}-\bar{P}}{\epsilon_0}))=-\partial_t (\mu_0 (\bar{\nabla}\times\bar{H} + \bar{\nabla}\times\bar{M} ))  \]
+		
+		despejando y usando que $\mu_0 \epsilon_0 = \tfrac{1}{c^2}$ se obtiene que 
+		
+		\begin{equation}
+		-\nabla^2 \bar{E} - \frac{1}{c^2} \partial_t \bar{E} = \mu_0 (\partial_t (\bar{\nabla} \times \bar{M})+\partial_t J + \partial^{2}_{t} \bar{P}) + \nabla(\bar{\nabla} \cdot \bar{E})  	
+		\end{equation}
+		
+		Usando como hipótesis que el medio dieléctrico no es magnético ($\rho_l=\jmath_l=0$) .
+		Por lo tanto  $\bar{M}=0$, $\bar{j}=0$, $\rho=0$ entonces
+		
+		\[\bar{D}=\epsilon(r)\bar{E}=\epsilon_0 \epsilon_r(r) \bar{E}\]	
+		
+		Si el medio es homogéneo , $\bar{\nabla}\cdot \bar{E}=0$, por lo tanto se obtiene la relación de Maxwell-Bloch para un dieléctrico.
+		
+		
+		\begin{equation}
+		\nabla^2 \bar{E} - \frac{1}{c^2}\frac{\partial^2 \bar{E}}{\partial t^2}= \mu_0 \frac{\partial^2 \bar{P}}{\partial t^2}
+		\label{eq: maxwell-bloch}
+		\end{equation}
+		
+		
+		

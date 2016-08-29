@@ -1,0 +1,54 @@
+\section{Reproducción de papers}
+
+	\subsection{Symmetry breaking, dinamical pulsations, turbulence}
+	
+	Intentamos re-obtener los resultados del paper \textit{Symmetry breaking, dynamical pulsations, and turbulence in the transverse intensity patterns of a lasser: the role played by defects.} (DOI: http://dx.doi.org/10.1016/0167-2789(92)90144-C)
+	
+	
+		\[
+		\begin{cases}
+		\partial_{\tau}E=-k\{ f(\rho) -i\Delta -\tfrac{1}{2}a(\tfrac{1}{4}\nabla^2_{\bot} - \rho^2 +1) \}E - 2 C k P\\
+		\partial_{\tau} P=-\gamma_{\bot}[ED + (1+i\Delta)P] \\
+		\partial_{\tau} D=-\gamma_{||}(D-\chi(\rho)+\tfrac{1}{2}(E^*P+EP^*)) \\
+		\end{cases}
+		\]
+		
+		Usando Galerkin:
+		
+		$\begin{cases}
+		\partial_t \psi_{pm}=-k\left([(9-f_{p})\psi_{pm}-\left[1+ i\tfrac{1}{2}a +i\Delta \right]\psi_{pm}\right)-2Ckp_{pm}\\
+		\partial_t p_{pm}=-\gamma_{\bot}[(1+i\Delta)p_{pm}+\sum\sum \Gamma (\sigma, \sigma', \sigma'') \psi_{pm}d_{pm}]\\
+		\partial_t d_{pm}=-\gamma_{\parallel}(d_{pm}-\chi_{pm}-\tfrac{1}{2}\sum\sum [\Gamma (\sigma, \sigma', \sigma'') \psi_{pm}^*p_{pm} + c.c.])
+		\end{cases}$
+		
+		con
+		
+		$\chi(\rho)=e^{(-1.2 \frac{\rho}{\rho_0})^2}\dfrac{[1+e^{-\rho_0^2}]}{[1+e^{(\rho^2-\rho_0^2)}]}$\\
+		$\Gamma (\sigma, \sigma', \sigma'')=\iint A_{pm}A_{p'm'}A_{p''m''}\rho \, d\!\rho d\!\varphi  $
+		
+		\todo{No esta en el paper. hacer de 0 just in case.}
+
+	
+	Perdidas:	
+	\[f(\rho)=5+4\tanh(5(\rho-\rho_0))\]
+	
+	Donde a es un parámetro que depende del numero de Fresnel, y cumple la siguiente relación entre de detuning entre la frecuencia fundamental de la cavidad y los ordenes mayores.
+	\[w_{pm}-w_{00}=\frac{ka(2p+m)}{2} \]
+	
+	190 puntos de colocación 19 direcciones angulares.
+	
+	Método de integración:
+	\begin{itemize}
+		\item 1- RK sin bombeo
+		\item 2- Rk con bombeo para achicar la cantidad de modos
+		\item 3- Ruido en el bombeo para bajar la precisión necesaria y usar Newton
+	\end{itemize}
+	
+	Valores:
+	$k=\gamma_{\bot}=1$, $\gamma_{||}=0.01$, $\Delta=-0.18$ y $\rho_0=2.3$
+	
+	Laser Threshold: $C=0.5$
+	
+	Con $C=1.1$ y $a=0.1$ tiene unicamente perfiles radialmente simétricos e intensidad independiente del tiempo.
+	
+	Con  $C=1.2$ y $a=0.1$ tiene pulsos periódicos simétricos.

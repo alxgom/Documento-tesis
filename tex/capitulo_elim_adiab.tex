@@ -1,0 +1,172 @@
+\chapter{Eliminación adiabatica}
+
+	\section{Posible eliminación adiabatica}
+	
+	1er aproach:
+	
+%	Tomando $E=E_0 e^{-i\bar{\delta w} \tau }$, $P=P_0 e^{-i\bar{\delta w} \tau }$
+	
+	si aproximo $P_0$ constante en la escala temporal $\tau$
+	
+	\[\partial_{\tau}P_0=0 \Longrightarrow P_0=\frac{E_0 D}{(1+i\delta  )}=E_0 D \alpha(1-i\delta )	\]
+	
+	Donde $\alpha=\tfrac{1}{1+\delta^2}$ .
+	
+	
+	
+	Reemplazando en las ecuaciones:
+	
+	\begin{equation}
+	\begin{cases}
+	\partial_{\tau}I_y=2[-k I_y +\mu\alpha D  I_y   ] \\
+	\partial_{\tau}I_x=2[-k I_x +\mu \alpha D I_x   ]	\\	
+	\partial_{\tau}\psi_y  = -\delta \alpha \mu  D+ \Delta \phi \\
+	\partial_{\tau}\psi_x  = -\delta \alpha \mu D\\
+	\partial_{\tau}D=-\gamma_{||}(D-D_0+\alpha D (I_x+I_y))
+	\end{cases}
+	\end{equation}
+	%	\textcolor{red}{Deberia quedarme la modulacion en las intensidades tambien !!}
+	
+	\begin{equation}
+	\partial_{\tau}I=2[-k I +\mu \alpha D I ] 
+	%					\partial_{\tau}\Psi  = \frac{\mu(P_{yr}E_{xr}-P_{xr}E_{yr})}{E^2_{yr}+E^2_{xr}}\\
+	\end{equation}
+	
+	
+	
+	Chequeando este resultado con los datos obtenidos se puede ver que hay una tendencia , pero que ciertamente no esta bien realizada la aproximación adiabatica así planteada.
+	
+	\begin{minipage}{0.33\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{../Python/Imagenes especiales para la tesis/adiab pyre.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+	\end{minipage}
+	\begin{minipage}{0.33\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{../Python/Imagenes especiales para la tesis/adiab pyim.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+	\end{minipage}
+	\begin{minipage}{0.33\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{../Python/Imagenes especiales para la tesis/mod adiab.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+	\end{minipage}\\
+	
+%	\textcolor{red}{si uso $\delta \approx 0.91 \delta$ me da bien. hay un factor que no se de donde sale.}
+	2do aproach:
+	
+	Tomando $E=E_0 e^{-i\tilde{\delta w} \tau }$, $P=P_0 e^{-i\tilde{\delta w} \tau }$
+	
+	\[
+	\begin{cases}
+	\partial_{\tau} E_x=-k E_x + \mu P_x + i\bar{\delta w} E_x \\
+	\partial_{\tau} E_y=-k E_y + \mu P_y + i.(\Delta \phi +\bar{\delta w}).E_y \\
+	\partial_{\tau} P_{x,y}=-(1+i\tilde{\delta})P_{x,y}+E_{x,y}.D \\
+	\partial_{\tau} D=-\gamma_{||}(D-D_0+\tfrac{1}{2}(E^*_{x,y}P_{x,y}+E_{x,y}P^*_{x,y})) \\
+	\end{cases}
+	\]
+	con $\tilde{\delta}=\delta-\tilde{\delta w}$
+	\textcolor{red}{si uso $\tilde{\delta w  }$ como $0.09$ me da un buen resultado.}
+	
+	si aproximo $P_0$ constante en la escala temporal $\tau$
+	
+	\[\partial_{\tau}P= 0 \Longrightarrow P=\frac{E D}{(1+i\tilde{\delta}  )}=E D \alpha(1-i\tilde{\delta} )	\]
+	
+	con $\alpha=\frac{1}{1+\tilde{\delta}^2}$
+	
+	\begin{equation}
+		\begin{cases}
+		\partial_{\tau} E_x=-k E_x + \alpha \mu E_x D + i(-\alpha \mu \tilde{\delta} D + \tilde{\delta w} ) E_x\\
+		\partial_{\tau} E_y=-k E_y + \alpha \mu E_y D + i( -\alpha \mu \tilde{\delta} D +\tilde{\delta w}+\Delta \phi)E_y \\
+		\partial_{\tau} D=-\gamma_{||}(D(1+\alpha(|E_x|^2+|E_y|^2))-D_0) \\
+		\end{cases}
+	    \label{eq: elim adiabatica}
+	\end{equation}
+		
+	definiendo $E_x=\rho_xe^{i\varphi_x}$
+	
+	\[ \partial_{\tau}E=e^{i\varphi}[\partial_{\tau}\rho + i \rho \partial_{\tau}\varphi]
+	\]
+	
+	
+	por lo tanto:
+	
+	\[
+	\begin{cases}
+	\partial_{\tau} \rho_x=-k \rho_x + \alpha \mu\rho_x D \\
+	\partial_{\tau} \rho_y=-k \rho_y + \alpha \mu \rho_y D \\
+	\partial_{\tau} \varphi_x=-\alpha \mu \tilde{\delta} D +\tilde{\delta w}\\
+	\partial_{\tau} \varphi_y=-\alpha \mu \tilde{\delta} D +\tilde{\delta w}+\Delta \phi \\
+	\partial_{\tau} D=-\gamma_{||}(D-D_0+\alpha D (\rho^2_x + \rho_y^2)) \\
+	\end{cases}
+	\]
+	
+	como $I=\rho^2$, entonces $\partial_{\tau} I= 2\rho \partial_{\tau}\rho$
+	
+	\begin{equation}
+		\begin{cases}
+			\partial_{\tau} I_x= 2(-k I_x + \alpha \mu I_x D) \\
+			\partial_{\tau} I_y= 2(-k I_y + \alpha \mu I_y D) \\
+			\partial_{\tau} \varphi_x=-\alpha \mu \tilde{\delta} D +\tilde{\delta w}\\
+			\partial_{\tau} \varphi_y=-\alpha \mu \tilde{\delta} D +\tilde{\delta w}+\Delta \phi \\
+			\partial_{\tau} D=-\gamma_{||}(D-D_0+\alpha D (I_x + I_y)) 
+		\end{cases}
+	\end{equation}
+	\label{eq: elim adiabatica int}
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\includegraphics[width= .6\linewidth]{../Python/Imagenes especiales para la tesis/phases.png}
+			\captionof{figure}{Fases de los campos $E_x$ y  $E_y$. En la figura se muestra un intervalo de 3 periodos de modulacion. Se puede observar que en  $y$ esta modulada con $w_{mod}$. }
+			\label{fig: phases}
+		\end{center}
+	\end{figure}
+	
+	Donde se puede apreciar que la modulación solo queda explícitamente en la fase $\varphi_y$, pero que la misma esta acoplada a la población $D$ y por lo tanto influye también en las intensidades.
+	
+	También se puede observar que al contrario de lo que sucede en la eliminación adiabatica cuando se modula la amplitud \ref{label}, la fase no queda desacoplada. 
+	De hecho la modulación, al variar la frecuencia del campo, modifica directamente la ganancia del mismo.
+	\textcolor{red}{mejorar estas frases}
+	
+	
+	
+	Realizando algunas pruebas para valores de $\tilde{\delta}$ de la forma $\tilde{\delta}=\beta \delta$ se observo que para los valores utilizados durante las experiencias, se obtenían buenos resultados utilizando $\beta=0.91$ , lo cual coincide con el valor que tomaría si se usara $\tilde{\delta}=\delta-k$.
+	
+	\begin{minipage}{0.33\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{../Python/integ directa/Results/2016_8_9-11.50.4-test_re_adiab.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+	\end{minipage}
+	\begin{minipage}{0.33\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{../Python/integ directa/Results/2016_8_9-11.50.3-test_re_adiab_tilde.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+	\end{minipage}\\
+	
+	Se realizaron algunas pruebas variando el valore de $k$ para ver si este resultado se reproducía.   
+	\textcolor{red}{cuantificar de alguna manera que es que sean buenos.}
+	
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{../Python/integ directa/Results/2016_8_9-11.41.49-test_re_adiab.png}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{../Python/integ directa/Results/2016_8_9-11.41.49-test_re_adiab_tilde.png}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+		\end{minipage}\\
+	
+	\textcolor{red}{Si bien la pendiente del resultado no es exactamente 1, se observa una gran mejora y da indicios de que realmente es posible realizar una eliminación adiabatica para este sistema, disminuyendo en gran manera la complejidad , y dando bastante información pie a elucidar los mecanismos de la dinámica del mismo.}
+	
+	
+	
+	
+	

@@ -1,0 +1,491 @@
+\chapter{Mapas}
+
+	\section{Barridos en $m$}
+	\textcolor{red}{tengo que cambiar las labels del eje y}
+	
+		\subsection{Mapa de un barrido en el parámetro $m$, con $\Delta \phi_0 = 0 $ y $w=500$Khz}
+		
+			\begin{center}
+				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_24-13.12.20-Max_vs_m (w=500.0, m=(0.0 - 0.08)).png}
+				\captionof{figure}{De menor a mayor}
+				\label{fig: mapa m 500 }
+			\end{center}
+			
+			
+			\begin{center}
+				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_28-17.42.7-compare_Max_vs_m-1.png}
+				\captionof{figure}{Otros atractores}
+				\label{fig: mapa m 500 colores}
+			\end{center}
+			
+			
+		\subsection{Mapa de un barrido en el parámetro $m$, con $\Delta \phi_0 = 0 $ y $w=473.34$Khz}
+		
+			\begin{center}
+				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_24-0.45.12-Max_vs_m (w=473.34, m=(0.0 - 0.08)).png}
+				\captionof{figure}{Histeresis}
+				\label{fig: mapa m 379 histeresis}
+			\end{center}
+			
+		
+%		\subsubsection{Mapa de un barrido en el parámetro $m$, con $\Delta \phi_0 = 0 $ y $w=420$Khz}
+%			
+%			\begin{center}
+%				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_23-5.49.19-Max_vs_m (w=420.0, m=(0.0 - 0.02695)).png}
+%				\captionof{figure}{???}
+%				\label{fig: mapa m 420}
+%			\end{center}		
+%			
+%			\begin{center}
+%				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_23-5.35.47-Max_vs_m (w=420.0, m=(0.0 - 0.02695))-2.png}
+%				\captionof{figure}{zoom}
+%				\label{fig: mapa m 420 zoom}
+%			\end{center}		
+%	
+%		
+%		\subsubsection{Mapa de un barrido en el parámetro $m$, con $\Delta \phi_0 = 0 $ y $w=400$Khz}
+%		
+%			\begin{center}
+%				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_23-8.46.53-Max_vs_m (w=400.0, m=(0.0 - 0.1)).png}
+%				\captionof{figure}{????????}
+%				\label{fig: mapa m 400 }
+%			\end{center}
+%			
+	
+		\subsection{Mapa de un barrido en el parámetro $m$, con $\Delta \phi_0 =0 $ y $w=379$Khz}
+		
+			Mapa utilizando los máximos del modulo del campo eléctrico :
+			
+			\begin{center}
+				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_5_22-17.35.3-Max_vs_m (w=379.0, m=(0.01 - 0.036397)).png}
+				\captionof{figure}{Barrido del parámetro $m$ para $w=379$kHz}
+				\label{fig: mapa m 379}
+			\end{center}
+			
+			Mismo mapa, utilizando una sección estroboscopica del modulo del campo eléctrico.
+			Para la sección estroboscopica se toma un el valor del modulo del campo eléctrico para cada máximo de la modulación .
+	%				\textcolor{red}{Pone barrido con mismos limites que el otro caso, y en ambos sentidos.}
+				
+			\begin{center}
+				\includegraphics[width= 0.8\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_31-17.14.7-compare_Max_vs_m.png}
+				\captionof{figure}{Barrido del parámetro $m$ para $w=379$kHz}
+				\label{fig: mapa m 379 colores}
+			\end{center}
+					
+			\begin{center}
+				\includegraphics[width= 0.5\linewidth]{../Python/swype m stroboscopic/Results/2016_5_31-16.45.26-both-strobo_vs_m-2.png}
+				\captionof{figure}{Mapa estroboscopico del mismo barrido que en la figura \ref{fig: mapa m 379}. En azul se muestra el barrido creciente, y en rojo el decreciente.}
+				\label{fig: swype m 379 strobo histeresis}
+				\textcolor{red}{tengo que arreglar esta figura}
+			\end{center}
+			
+			En la figura \ref{fig: mapa m 379 histeresis} se muestra en negro un barrido creciente en $m$, y en rojo un barrido decreciente.
+			Se observa la presencia de histeresis.
+			
+			\begin{center}
+				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/figure_5.png}
+				\captionof{figure}{Histeresis}
+				\label{fig: mapa m 379 histeresis}
+			\end{center}
+					
+%	\subsubsection{Mapa de un barrido en el parámetro $m$, con $\Delta \phi_0 = 10^{-5} $ y $w=379$Khz}	
+			\textcolor{red}{Poner barrido con delta phi 0 }
+%			 
+		\subsection{Mapa de un barrido en el parámetro $m$, con $\Delta \phi_0 = 0 $ y $w=120$Khz}
+		
+		Se realizaron barridos del parámetro $m$ para $w=120$kHz , ya que para estas frecuencias se obtuvieron resultados con dinámicas no nulas en ambos campos.
+		Para obtener los resultados con ambos campos se empezó a integrar desde  $m=0$ con una condición inicial simétrica como la que se muestra en la figura \ref{fig: ci simetrica}. 
+		
+			\begin{center}
+				\includegraphics[width= 0.6\linewidth]{../Python/swype m max/swype_m_max/Results/2016_7_26-19.12.45-compare_Max_vs_m.png}
+				\captionof{figure}{Resultados obtenidos para los barrido con $w_{mod}=120$kHz. En rojo se muestran los resultados obtenidos a partir de una condicion inicial simetrica. En azul se muestra los resultados obtenidos a partir de un barrido decreciente empezando desde las soluciones caoticas para $m>0.5$}
+				\label{fig: mapa m 120}
+			\end{center}		
+		\textcolor{red}{poner mas resultados de este mapa}
+		
+		Se observa que para valores mayores a $m=0.44$ el sistema vuelve a tener soluciones con decaimiento en el campo electrico en la dirección $x$.		
+				
+				
+	\section{Barrido en $w$}
+	
+	
+	
+	
+	\subsection{Mapa de un barrido en el parámetro $w$, $m=0.015$ y $\Delta \phi_0=0$}			 		
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\includegraphics[width= .48\linewidth]{../Python/swype w max/Results/2016_7_8-19.23.57-Maxintensity_vs_w (m= 0.015, w=( 500.0 - 100.0 )).png}
+			\includegraphics[width= .48\linewidth]{../Python/swype w max/Results/2016_7_10-9.52.3-Maxintensity_vs_w (m= 0.015, w=( 100.0 - 500.05 )).png}	
+		\end{center}
+		\caption{Barrido detallado de mayor a menor(en negro) y de menor a mayor(en azul) conservando la fase de la solucion anterior .}
+	\end{figure}	
+	
+	
+		\subsection{Mapa de un barrido en el parámetro $w$, $m=0.0187$ y $\Delta \phi_0=0$}			 
+		
+			\begin{figure}[H]
+				\begin{center}
+					\includegraphics[width= .8\linewidth]{../Python/swype w max/Results/2016_7_20-11.59.15-Maxintensity_vs_w (m= 0.0187, w=( 500.0 - 248.15 )).png}
+				\end{center}
+				\caption{Barrido detallado de mayor a menor.}
+			\end{figure}	
+			
+			
+			\begin{figure}[htp]
+				\begin{center}
+					\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/multiestability crisi/2016_7_20-3.52.17-color_phase_E_vs_pop.png}
+				\end{center}
+				\caption{Soluciones obtenidas para $w=499.25$kHz. Para valores de $m$ mayores a $1.975$ no se encontraron este tipo de soluciones.}
+			\end{figure}		
+			\todo{hacer un barrido en m para esta frecuencia a ver hasta donde llegan.}
+		
+		
+		
+		\subsection{Mapa de un barrido en el parámetro $w$, con $\Delta \phi_0 =0 $ y $m=0.02$}
+		
+		Mapa utilizando los máximos del modulo del campo eléctrico:
+		
+		Este mapa se realizo tomando varias veces la misma condición inicial, por lo tanto si bien no muestra la evolución de las bifurcaciones partiendo de una única trayectoria, muestra algunos de los distintos tipos de dinámica que puede exhibir el sistema.
+		
+		\begin{center}
+			\includegraphics[width= 0.7\linewidth]{../Python/swype w max/Multi swype/Results/2016_5_28-12.58.17-Maxintensity_vs_w (m= 0.02, w=( 500.0 - 110.95 )).png}
+			\captionof{figure}{..}
+			\label{mapa 2 02}
+		\end{center}
+		
+		Aproximadamente por debajo de los $117 Khz$ se observo que el sistema muestra una dinámica en la que ambas direcciones del campo eléctrico están activas, mientras que para frecuencias mas altas en todos los comportamientos observados el campo $E_x$ tiende a $0$.
+		
+		En la figura ??? se muestra con mas detalle un de las  bifurcaciones que llevan a la dinámica caótica .
+		
+		\textcolor{red}{Poner el resultado del barrido con la dinámica de los dos campos.}
+		
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_1_18-7.37.57-max_vs_w.png}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+			\centering
+			\includegraphics[width= 1\linewidth]{../Python/swype w max/Results/2016_5_28-12.58.17-Maxintensity_vs_w (m= 0.02, w=( 500.0 - 110.95 ))-1.png}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+		\end{minipage}
+		
+		\textcolor{red}{cambiar figura de la derecha por otra zona interesante.}	
+			
+		\textcolor{red}{Poner barrido con delta phi 0 }	
+		
+		En la figura \ref{fig: mapa w 02 ambos campos} se muestra un barrido para la dinámica en la que el sistema presenta actividad en ambos campos.
+		También se ve uno de los atractores con decaimiento en $E_x$, con un valor de intensidad mas alto.
+		
+		\begin{center}
+			\includegraphics[width= 0.7\linewidth]{../Python/swype w max/Results/2016_7_3-17.4.58-Maxintensity_vs_w (m= 0.02, w=( 100.25 - 181.79 )).png}
+			\captionof{figure}{Entre $w=100$kHz y $w\approx 180$ kHz se observan soluciones con dinamica periodica en ambos campos. A partir de $180$kHz el sistema salta hacia las soluciones que solo presentan campo periodico en $E_x$ }
+			\label{mapa w 02 ambos campos}
+		\end{center}
+		
+		Para valores mas altos en frecuencia no se encontraron dinámicas con ambos campos activos. Se intento refinar el paso del barrido para seguir la trayectoria del atractor en el espacio de parámetros, pero para frecuencias mayores a las mostradas, el sistema siempre paso a la configuración con un solo campo.
+		
+		
+		Se observo que en la frontera de una de las ventanas caóticas del barrido en 2 (Fig \ref{mapa 2 02}) para $w=279,31$kHz el sistema presenta intermitencia.
+		
+		\begin{minipage}{0.5\textwidth}
+			
+			\centering
+			\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/intermitency/2016_6_1-16.4.42-E_intensitys.png}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+			
+		\end{minipage}
+		\begin{minipage}{0.5\textwidth}
+			
+			\centering
+			\includegraphics[width= 1\linewidth]{../Python/integ directa/Results/intermitency/2016_6_1-16.3.29-color_phase_E_vs_pop.png}
+			%\caption{Set joke}
+			%	\label{fig:erise}
+			
+		\end{minipage}
+		
+		
+		\todo{poner que esta intermitenci no gnera rogue waves}
+		
+		
+		Mapa estroboscopico :
+		
+		Se realizo un mapeo estroboscopico , utilizando como referencia los máximos de la modulación .
+				
+		\begin{center}
+			\includegraphics[width= 0.75\linewidth]{../Python/swype w stroboscopic/Results/2016_6_11-22.15.58-strobo_vs_m (w=0.02, m=(0.363887092755 - 0.127826380771)).png}
+		\end{center}
+	
+		
+		\begin{center}
+			\includegraphics[width= 0.5\linewidth]{../Python/swype w stroboscopic/Results/2016_7_3-14.55.21-strobo_vs_w.png}
+		\end{center}
+		
+	
+		Integrando desde una condición inicial simétrica desde $100$ kHz, se encontró un conjunto de soluciones en el cual ninguno de los campos decae. El mismo conjunto de soluciones parece ser estable unicamente hasta $w_{mod} \approx 180 $kHz. luego el sistema cambia de solución hacia una en la que el campo $|E_x|$ presenta decaimiento.
+		
+		\begin{center}
+			\includegraphics[width= 0.5\linewidth]{../Python/swype w stroboscopic/Results/2016_7_1-15.47.51-strobo_vs_w.png}
+		\end{center}
+	
+		Se realizo un subsecuente barrido en la dirección contraria con el fin de demostrar que si bien la soluciones pasan del la trayectoria de periodo 1 a la de periodo 3, en el sentido contrario esto no sucede, y el sistema continua presentando decaimiento en $|E_x|$
+		
+		\begin{center}
+			\includegraphics[width= 0.5\linewidth]{../Python/swype w stroboscopic/Results/2016_7_1-19.44.25-strobo_vs_w.png}
+		\end{center}
+		
+		
+	\subsection{Mapa de un barrido en el parámetro $w$, con $\Delta \phi_0 =0 $ , $m=0.02$ y $\Delta \phi_0=10^{-5}$}
+			
+			Para comparar con un caso en el que la birrefringencia no es estrictamente nula, se realizo el mismo barrido que el anterior, para $\Delta \phi_0 =10^{-5} $, valor para el cual basado en simulaciones individuales, se esperaba un comportamiento similar.
+			
+					
+			\begin{center}
+				\includegraphics[width= 0.75\linewidth]{../Python/swype w max/Results/2016_6_11-3.51.21-Max_E_vs_w.png}
+			\end{center}
+		
+			No se pueden apreciar diferencias cualitativas con el mismo mapa realizado con $\Delta \phi_0=0$
+			
+		
+		\textcolor{red}{hacer corridas para casos interesante de multiestabilidad. Sumar el barrido para el caso con las dos dinamicas. hacer barrido para la bifurcación de arriba en w=345. tratar de seguir la otra bifurcación de arriba.}			 
+		
+		
+	
+	\subsection{Mapa de un barrido en el parámetro $w$, $m=0.0202$ y $\Delta \phi_0=0$}			 			
+	Se realizo este diagrama con el fin de visualizar que sucede con la dinámica al variar $w$ para los valores de $m$ en los cuales se conocen eventos extremos.
+	
+	En particular, se realizo un barrido 'desfasado' \todo{cambiar esta palabra} con el fin de visualizar varias de las dinámicas que son mas difíciles obtener con un barrido común.
+	
+	\begin{minipage}{0.7\textwidth}
+		\centering
+		\includegraphics[width= \linewidth]{../Python/swype w max/swype_w_max-dephased/Results/2016_7_16-22.52.26-Maxintensity_vs_w (m= 0.0202, w=( 420.0 - 100.05 ))-deph.png}
+		%\caption{Set joke}
+		%	\label{fig:erise}
+	\end{minipage}	
+	
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\includegraphics[width= .9\linewidth]{../Python/swype w max/Results/2016_7_28-19.0.47-compare_Max_vs_w.png}
+		\end{center}
+		\caption{Varios atractores.}
+		\label{202 colores}
+	\end{figure}
+	
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\includegraphics[width= .7\linewidth]{../Python/swype w max/Results/2016_7_6-6.52.30-Maxintensity_vs_w (m= 0.0202, w=( 500.0 - 100.0 )).png}
+		\end{center}
+		\caption{Barrido de mayor a menor conservando la fase relativa de la solución anterior.}
+	\end{figure}
+	
+	
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\includegraphics[width= .5\linewidth]{../Python/swype w max/Results/2016_7_20-11.57.40-Maxintensity_vs_w (m= 0.0202, w=( 416.25 - 419.9 ))-1.png}
+		\end{center}
+		\caption{Barrido detallado de mayor a menor entre $416$ y $419$ kHz , se ve claramente la existencia de otros atractores.}
+	\end{figure}
+	
+	
+	\begin{figure}[htp]
+		\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/multiestability crisi/2016_7_19-4.4.35-color_phase_E_vs_pop.png}
+		\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/multiestability crisi/2016_7_19-4.0.28-color_phase_E_vs_pop.png}
+		\caption{Coexistencia de dos soluciones estable, con $m=0.0202$ y $w_{mod}=416.25$kHz. A la derecha se observa una solución con periodo 2, a la izquierda una solución con periodo 8.}
+	\end{figure}
+	
+	
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\includegraphics[width= .5\linewidth]{../Python/swype w max/Results/2016_7_13-12.5.47-Maxintensity_vs_w (m= 0.0202, w=( 400.0 - 380.002 )).png}
+		\end{center}
+		\caption{Barrido detallado  de mayor a menor entre $400$ y $380$ kHz }
+	\end{figure}	
+	
+	En particular se ve la existencia de otro atractor en la zona caótica, el cual bifurca y 'parece colisionar' con un atractor previamente caótico, dando lugar a los eventos extremos.
+	\textcolor{red}{ todavía no estoy seguro de esto, estoy haciendo barridos.}
+	
+	
+	\begin{figure}[htp]
+		\begin{center}
+			\includegraphics[width= .45\linewidth]{../Python/swype w max/Results/2016_7_28-18.35.15-compare_Max_vs_w-3.png}
+			\includegraphics[scale=0.2]{../Python/swype w max/Results/2016_7_19-3.55.3-Maxintensity_vs_w (m= 0.0202, w=( 321.6 - 336.848 ))-1.png}
+			\includegraphics[scale=0.2]{../Python/swype w max/Results/2016_7_19-3.55.3-Maxintensity_vs_w (m= 0.0202, w=( 321.6 - 336.848 ))-2.png}
+		\end{center}
+		\caption{Rango de frecuencias para el que se observa la coexistencia de un segundo atractor  cerca de la zona de eventos extremos . $m=0.0202$ }
+		\label{rango coex m 202}
+	\end{figure}		
+	
+	\begin{figure}[htp]
+		\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/multiestability crisi/2016_7_18-2.22.59-color_phase_E_vs_pop.png}
+		\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/multiestability crisi/2016_7_18-2.28.25-color_phase_E_vs_pop.png}
+		\caption{Coexistencia de una solución estable y una solución caótica, con $m=0.0202$ y $w_{mod}=321.6$kHz}
+	\end{figure}
+	
+	
+	\begin{figure}[htp]
+		\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/multiestability crisi/2016_7_18-16.52.11-color_phase_E_vs_pop.png}
+		\includegraphics[width= .5\linewidth]{../Python/integ directa/Results/multiestability crisi/2016_7_18-16.37.22-color_phase_E_vs_pop.png}
+		\caption{Coexistencia de atractores caóticos, con $m=0.0202$ y $w_{mod}=336.01$kHz}
+	\end{figure}
+			
+		\subsection{Mapa de un barrido en el parámetro $w$, $m=0.028$ y $\Delta \phi_0=10^{-5}$}			 
+		
+		Se realizo un barrido desde $w=500$kHz a $w=100$kHz . Se realizo con un paso de $0.05$kHz. Para cada paso, se dejan pasar 200 periodos de modulación y luego se guardan los 40 periodos siguientes.
+		 
+				\begin{center}
+					\includegraphics[width= 0.75\linewidth]{../Python/swype w max/Results/2016_6_27-16.54.36-Maxintensity_vs_w (m= 0.028, w=( 500.0 - 100.0 )).png}
+				\end{center}
+					
+				Secciones llamativas
+				
+				\begin{minipage}{0.33\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_6_27-16.54.36-Maxintensity_vs_w (m= 0.028, w=( 500.0 - 100.0 ))-1.png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}
+				\begin{minipage}{0.33\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_6_27-16.54.36-Maxintensity_vs_w (m= 0.028, w=( 500.0 - 100.0 ))-2.png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}
+				\begin{minipage}{0.33\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_6_27-16.54.36-Maxintensity_vs_w (m= 0.028, w=( 500.0 - 100.0 ))-3.png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}
+				
+					
+				Secciones llamativas
+								
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_7_1-9.36.47-Maxintensity_vs_w (m= 0.028, w=( 115.01 - 108.09 ))-mod.png}
+
+					\captionof{figure}{Barrido en el que se muestran las soluciones en las que ambos campos presentan perioricidad. Luego de  $w\approx 172 $kHz el sistema pasa a una solución caótica en la que un solo campo presenta periodicidad.  Para $w\approx 108 $kHz se observa histeresis }
+					\label{mapa w 028 ambos campos}
+				\end{minipage}		
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_7_1-9.51.27-Maxintensity_vs_w (m= 0.028, w=( 100.0 - 136.008 )).png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}	
+					
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_7_2-6.29.41-Maxintensity_vs_w (m= 0.028, w=( 140.95 - 156.315 )).png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}		
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_7_2-6.29.41-Maxintensity_vs_w (m= 0.028, w=( 140.95 - 156.315 ))-1.png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}	
+				
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_7_2-20.36.14-Maxintensity_vs_w (m= 0.028, w=( 187.135 - 158.251 )).png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}		
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_7_2-20.36.14-Maxintensity_vs_w (m= 0.028, w=( 187.135 - 158.251 ))-1.png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}
+	
+			\begin{center}
+				\includegraphics[width= \linewidth]{../Python/swype w max/Results/2016_7_29-4.16.40-compare_Max_vs_w-1.png}
+				%\caption{Set joke}
+			\end{center}
+				
+				
+			
+	\section{Barridos en $\delta$}
+			
+		\subsection{Mapa de un barrido en el parámetro $\delta$, $m=0.028$ y $w=379$kHz}
+		
+		Se realizo un barrido en el parámetro $\delta$ desde $1$  a $0$, con un paso de $0.001$.
+		Por cada paso se dejo pasar un tiempo equivalente a 40 peridos de modulación y se guardaron los siguientes 30.
+		
+		En la figura ??? se muestran los resultados obtenidos realizando en barrido de 1 a 0 (en negro) y de 0 a 1 (en azul) 
+		
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype delta/Results/2016_7_2-16.4.9-Maxintensity_vs_w (m= 0.028, w=( 1.0 - 0.000999999999999 )).png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}	
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype delta/Results/2016_7_2-19.24.23-Maxintensity_vs_w (m= 0.028, w=( 0.0 - 1.0 )).png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}	
+				
+				Llamativamente, al contrario de la mayoría de los resultados encontrados en los barridos de los otros parámetros, en el barrido realizado de 0 a 1, la la dinámica que prevalece es una con decaimiento en $|E_y|$ y no en $|E_x|$. Por otro lado se ve que la solución se desacopla de la modulación. 
+				
+				Esta solución existe incluso para los valores de parámetros estudiados en los barrido realizados anteriormente.
+				
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/integ directa/Results/Imagenes barrido delta/2016_7_2-19.41.4-Ex_vs_Ey.png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}	
+				\begin{minipage}{0.5\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/integ directa/Results/Imagenes barrido delta/2016_7_2-19.41.21-color_physical_pol-1.png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}			
+				
+				\todo{Cambiara en algo un barrido en frecuencia para este tipo de soluciones??}
+			
+				En la figura ??? se muestra un barrido realizado de manera creciente, intentando reproducir los resultados anteriores.
+				La condición inicial es tomada a partir de una resultado de la figura ???, en el cual $|E_y| \gg |E_x|$. 
+				$|E_y|\sim O(1)$,  mientra que  $|E_x| \sim O(-320)$
+				Si bien en la figura no es perceptible la solución parece seguir una solucion estable, pero en realidad, a partir de los datos obtenidos se puede ver que durante esta trayectoria inicial $|E_x|$ crece mientras que $|E_y|$ decae. A partir de un momento en el cual $|E_x| \sim O(1)$ y $|E_y|$ lo suficientemente chico la trayectoria salta hacia la otra solución que es muestra en la figura ?? .
+				
+				\begin{minipage}{0.6\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype delta/Results/2016_7_2-20.31.5-Maxintensity_vs_w (m= 0.028, w=( 0.321 - 0.534 )).png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}	
+		
+		
+	\subsection{Mapa de un barrido en el parámetro $\delta$, $m=0.02/$ y $w=100$kHz}
+		
+			\begin{minipage}{0.6\textwidth}
+				\centering
+				\includegraphics[width= \linewidth]{../Python/swype delta/Results/2016_7_3-10.47.48-Maxintensity_vs_w (m= 0.028, w=( 1.0 - 0.000999999999999 )).png}
+				%\caption{Set joke}
+				%	\label{fig:erise}
+			\end{minipage}
+		\textcolor{red}{puedo hacerlo para w=120 y poner también la parte caotica}
+				
+
+		\subsection{Mapa de un barrido en el parámetro $\delta$, $m=0.02$ y $w=379$kHz}
+				
+				\begin{minipage}{0.6\textwidth}
+					\centering
+					\includegraphics[width= \linewidth]{../Python/swype delta/Results/2016_7_3-17.56.36-Maxintensity_vs_w (m= 0.02, w=( 1.0 - 0.000999999999999 )).png}
+					%\caption{Set joke}
+					%	\label{fig:erise}
+				\end{minipage}	
+				

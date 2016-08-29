@@ -1,0 +1,62 @@
+\begin{figure}[htc]
+	\begin{center}
+		
+		\begin{tikzpicture}
+		\tikzstyle{ground}=[fill=white,pattern=north east lines,draw=none,minimum width=0.95cm,minimum height=0.1cm]
+		\tikzstyle{ground2}=[fill=white,pattern=north west lines,draw=none,minimum width=0.95cm,minimum height=0.1cm]
+		\tikzstyle{mirr3}=[draw=none,minimum width=0.95cm,minimum height=0.1cm]
+		\tikzstyle{medium}=[fill=orange,draw=none,minimum width=1.5cm,minimum height=0.08cm]
+		\tikzstyle{faraday}=[fill=grey,draw=none,minimum width=0.5cm,minimum height=0.08cm]
+		
+		\coordinate (O) at (-2,-2);
+		\coordinate (A) at (2,-2);
+		\coordinate (B) at (2,2);
+		\coordinate (C) at (-2,2);
+		\coordinate (D) at (4,-2);
+		
+		\begin{scope}[very thick,decoration={
+			markings,
+			mark=at position 0.5 with {\arrow{>}}}
+		] 
+		\draw[ultra thick, color=red,postaction=decorate] (O)--(A);
+		\draw[ultra thick, color=red,postaction=decorate] (A)--(B);
+		\draw[ultra thick, color=red,postaction=decorate] (B)--(C);		
+		\draw[ultra thick, color=red,postaction=decorate] (C)--(O);
+		\draw[ultra thick, color=red,postaction=decorate] (A)--(D);
+		\end{scope}
+		
+		\coordinate (z0) at (3,2);
+		\coordinate (zL) at (2,3);
+		
+		
+		%					\node at (0,-2) [rectangle,fill=orange,opacity=0.6] (1.0,0.07) {};
+		%					
+		\node at (0,-2) [medium,opacity=0.6] {};
+		\node at (0,2) [faraday,opacity=0.6] {};
+		
+		\node (mirror1) at (O) [ground,anchor=north,rotate around={320:(O)}] {};
+		\draw[thick] (mirror1.north west) -- (mirror1.north east) ;
+		\node (mirror2) at (A) [mirr3,anchor=north,rotate around={45:(A)},label={below left:$R<1$}]  {};
+		\draw[thick] (mirror2.north east) --
+		(mirror2.north west) ;
+		\node (mirror3) at (B) [ground,anchor=north,rotate around={135:(B)}] {};
+		\draw[thick] (mirror3.north west) --
+		(mirror3.north east) ;
+		%							\node (labels) at (B) [label={right:$z=L$},label={above:$z=0$}] {};
+		\node (mirror4) at (C) [ground2,anchor=north,rotate around={225:(C)}] {};
+		\draw[thick] (mirror4.north east) --
+		(mirror4.north west) ;					
+		
+		
+		\draw (B)--(z0) ;
+		\draw (B)--(zL) ;
+		\tkzLabelSegment[above=1cm](B,z0){$z=0$}
+		\tkzLabelSegment[right=1cm](B,zL){$z=L$}
+		
+		
+		\end{tikzpicture}
+		\caption{\textit{Ring LASER}}
+		\label{fig: Ring}
+	\end{center}
+
+\end{figure}
